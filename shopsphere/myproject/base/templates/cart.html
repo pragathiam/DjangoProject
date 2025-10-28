@@ -1,0 +1,9 @@
+{% extends 'main.html' %}
+{% block content %}
+    <center>
+        <h3>CART</h3>
+        {% for i in all_cart_products %}
+            <h4>{{i.p_category}}// {{i.p_name}}//{{i.p_desc}}//{{i.p_price}}</h4>
+        {% endfor %}    
+    </center>
+{% endblock content %}

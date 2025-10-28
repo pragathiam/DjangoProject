@@ -1,0 +1,47 @@
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing:border-box;
+}
+body{
+    background-color: black;
+}
+#card{
+    width:250px;
+    height:400px;
+    background-color: rgb(50,50,50);
+    margin:auto;
+    margin-top: 100px;
+    padding:3%;
+    text-align:center;
+    border-radius: 2%;
+}
+#card > img{
+    width:80px;
+    height:80px;
+    border-radius:2%;
+}
+#card > h2{
+    color:white;
+    margin-bottom:10px;
+}
+#card > .address{
+    color:chartreuse;
+    font-size: 12px;
+    margin-bottom:10px;
+}
+#card > .desc{
+    color:grey;
+    font-size:12px;
+    margin-bottom:15px;
+}
+#card > .social{
+    width:100px;
+    height:20px;
+    margin-bottom:10px;
+    background-color: rgb(86,86,86);
+    color:white;
+    font-size:10px;
+    padding:5px;
+    border-radius:7px;
+}

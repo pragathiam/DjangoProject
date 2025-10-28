@@ -1,0 +1,20 @@
+{% extends 'main.html' %}
+{% block content %}
+<center>
+    <h2>Homepage</h2>
+    {% for i in data %}
+        <div class="card">
+            <h3>ID: {{ i.id }}</h3>
+            <p><strong>Title:</strong> {{ i.title }}</p>
+            <p><strong>Description:</strong> {{ i.desc }}</p>
+            <div class="actions">
+                <a href="{% url 'update' i.id %}" class="btn-read">Update</a>
+                <a href="#" class="btn-read">Complete</a>
+                <a href="{% url 'confirm_delete' i.id %}" class="btn-read">Confirm Delete</a>
+            </div>
+        </div>
+    {% empty %}
+        <p>No bookings found.</p>
+    {% endfor %}
+</center>
+{% endblock content %}

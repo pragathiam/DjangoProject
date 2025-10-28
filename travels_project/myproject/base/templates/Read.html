@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<h2>this is read form</h2>
+
+<center>
+
+    <div class="Deals_and_offers">
+             <div class="Travels">
+                  <h3>{{Travel.id}}</h3>
+                  <h3>{{Travel.title}}</h3>
+                  <h3>{{Travel.desc| safe}}</h3>
+             </div>
+    </div>
+</center>
+{% endblock content %}

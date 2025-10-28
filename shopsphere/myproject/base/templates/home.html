@@ -1,0 +1,13 @@
+{% extends 'main.html' %}
+
+{% block content %}
+        <center>
+                {% for i in all_products %}
+                  <h2>
+                    <image src="{{i.p_images.url}}" alt="">//{{i.p_category}}//{{i.p_name}}//{{i.p_desc}}//{{i.p_price}}
+                    <a href="">Add to cart</a>
+                    <a href="">Details</a>
+                  </h2>
+                {% endfor %}        
+        </center>
+{% endblock content %}

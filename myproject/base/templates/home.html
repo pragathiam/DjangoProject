@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+
+ {% block content %}
+
+<center>
+
+         <div class="home">
+
+            {% for i in article_data %}
+
+                  <div class="article">
+                     
+                     <h3>{{i.id}}</h3>
+                     <h3>{{i.title}}</h3>
+                     <h3>{{i.desc | truncatewords:10}}</h3>
+                     <a href="{% url 'read' pk=i.id %}">Read</a>
+                  </div>
+
+            {% endfor %}
+
+         </div>
+
+</center>
+
+    {% endblock content %}

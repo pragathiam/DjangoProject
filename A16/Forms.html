@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        sup{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Demo on Forms</h1>
+    <form>
+        
+        <label>Name : <sup>*</sup></label>
+        <input type="text" name="fname" placeholder="Enter First Name">
+        <input type="text" name="lname" placeholder="Enter last Name"
+        required>
+
+        <br><br>
+
+        <label> Email :</label>
+        <input type="Email" name="Mail" placeholder="Enter email address">
+
+        <label> Password :</label>
+        <input type="password" name="pswd" placeholder="Enter Password">
+        <br><br>
+
+        <label>Age :</label>
+        <input type="number" name="age" min="0" max="99" placeholder="Age">
+
+        <label>Date of Birth :</label>
+        <input type="date" name="dob">
+
+        <input type="time" name="time">
+        <input type="datetime-local" name="datetime">
+
+        <br><br>
+
+        <input type="tel" name="phno" pattern="[6-9]{1}[0-9]{9}"
+        placeholder="Enter Contact Number">
+
+        <input type="file" name="file">
+        <input type="range" name="count" min="0" max="10" value="1">
+        <input type="color" name="colorValue">
+
+        <hr>
+
+        <label>Gender :</label>
+        
+        <label>Male</label>
+        <input type="radio" name="gender" value="male" id="m" checked>
+        <label>Female</label>
+        <input type="radio" name="gender" value="female" id="f">
+        <label for="o">Custom</label>
+        <input type="radio" name="gender" value="custom" id="o" disabled>
+        <br><br>
+
+        <label>Language :</label>
+
+        <label>English</label>
+        <input type="checkbox" name="lang" value="eng" id="e">
+        <label>Kannada</label>
+        <input type="checkbox" name="lang" value="kan" id="e">
+        <label>Hindi</label>
+        <input type="checkbox" name="lang" value="hin" id="h">
+        <br><br>
+
+        <label>Places</label>
+        <select name="palce">
+            <option value="bang">Bangalore</option>
+            <option value="mys">Mysore</option>
+            <option value="ker" selected>Kerala</option>
+            <option  value="has" disabled>Hassan</option>
+            <option value="man">Mandya</option>
+        </select>
+        <br><br>
+
+        <textarea name="comment" rows="5" cols="50" placeholder="comment Box"></textarea>
+
+
+        <br><br>
+        <input type="reset">
+        <input type="Submit" value="Register"> 
+    
+    </form>
+</body>
+</html>

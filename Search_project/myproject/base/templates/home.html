@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+{% block content %}
+<h3>This is homepage </h3>
+
+<center>
+        <input type="submit">
+    </form><hr>  
+
+    <form action="">
+        <input type="text" name="q" placeholder="search here...">
+        <input type="submit" value="search">
+    </form><hr>
+
+        <!--<h2>{{article_data}}</h2> -->
+        <div class="article">
+            <h3>List of all Fruits </h3>
+            <a href="{% url 'home' %}">all_fruits</a>
+            {% for i in all_data %}
+            <div class="data">
+            <h2>{{i.id}}//{{i.title}}//{{i.desc}}</h2>
+            </div>
+            {% endfor %}
+        </div>
+</center>        
+
+{% endblock content %}

@@ -1,0 +1,43 @@
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing:border-box;
+}
+body{
+    background-color: white;
+}
+#{
+    width:900px;
+    height:500px;
+    background-color: rgb(50,50,50);
+    margin:auto;
+    margin-top: 100px;
+    padding:5%;
+    text-align: center;
+    border-radius: 2%;
+}
+img{
+    width:90px;
+    height:90px;
+    border-radius:5%;
+}
+h2{
+    color:white;
+    margin-bottom: 20px;
+}
+.address{
+    color:white;
+    font-size:8px;
+    margin-bottom: 50px;
+}
+.social{
+    width:150px;
+    height:30px;
+    margin-bottom: 20px;
+    background-color: blue;
+    color:white;
+    font-size: 15px;
+    padding:2px;
+    border-radius: 9px;
+
+}

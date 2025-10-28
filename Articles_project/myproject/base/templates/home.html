@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+{% block content %}
+<center>
+    <div class="home">
+      {% for i in data %}
+    <div class="article">
+            <h3>{{i.id}}</h3>
+            <h3>{{i.title}}</h3>
+            <h3>{{i.desc | truncatewords:15}}</h3>
+            <a href="{% url 'update' i.id %}" class="btn-read">update</a>
+            <a href="" class="btn-read">Complete</a>
+            <a href="{% url 'confirm_delete' i.id %}" class="btn-read">confirm_delete</a>
+          </div>
+        {% endfor %}
+        </div>
+</center>
+{% endblock content %}

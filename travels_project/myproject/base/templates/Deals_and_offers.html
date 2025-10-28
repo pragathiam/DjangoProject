@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<center>
+    <h2>Deals and offers</h2>
+    <div class="Deals_and_offers">
+        {% for i in data %}
+
+        <div class="Travels">
+
+            <h2>{{ i.id }}</h2>
+            <h2>{{ i.title }}</h2>
+            <h2>{{ i.desc | truncatewords:15 }}</h2>
+            <a href="{% url 'read' pk=i.id %}">Read More</a>
+        </div>
+
+        {% endfor %}
+    </div>
+</center>
+
+{% endblock content %}

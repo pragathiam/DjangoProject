@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<h2>this is read template</h2>
+
+<center>
+    <div class="events">
+        <div class="article">
+            <h3>{{ article.id }}</h3>
+            <h3>{{ article.title }}</h3>
+            <h3>{{ article.desc }}</h3>
+        </div>
+    </div>
+</center>
+{% endblock content %}

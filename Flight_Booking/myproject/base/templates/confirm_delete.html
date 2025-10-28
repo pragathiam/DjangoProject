@@ -1,0 +1,12 @@
+{% extends 'main.html' %}
+{% block content %}
+<center>
+    <h1>Are You Sure Want To delete record ?
+        <h2>title = {{record.title}}</h2>
+        <div class="btn">
+            <a href="{% url 'delete_' record.id %}">delete</a>
+            <a href="{% url 'home' %}">cancel</a>
+        </div>
+    </h1>
+</center>
+{% endblock content %}

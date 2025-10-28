@@ -1,0 +1,46 @@
+{% extends 'main.html' %}
+{% block content %}
+<h2>This is homepage </h2>
+<center>
+<hr>
+    <h1>Get</h1>
+        <h2>{{data}}</h2>
+        <h2>{{data.title}}</h2>
+        <h2>{{data.desc}}</h2>
+<hr>  
+    <h1>all</h1>
+        <h2>{{all_data}}</h2>
+        {% for i in all_data %}
+            <h2>{{i.title}}//{{i.desc}}</h2>
+        {% endfor %}
+<hr>
+    <h1>filter</h1>
+        <h2>{{all_filter}}</h2>
+        {% for i in all_filter %}
+            <h2>{{i.title}}//{{i.desc}}</h2>
+        {% endfor %}
+<hr>
+    <h1>Create Operation</h1>  
+
+    <form action="" method="POST" >
+        {% csrf_token %}
+        <label for="">title</label>
+        <input type="text" name="title_attr"> <br>
+
+        <label for="">desc</label>
+        <input type="text" name="desc_attr" id=""> <br>
+
+        <input type="submit"name="" id="">
+        
+    </form> <hr>
+
+    <h2> list of task(read operation) </h2>
+    {% for i in data %}
+            <h2>{{i.id}}//{{i.title}}//{{i.desc}}
+            <a href="{% url 'update' i.id %}">update</a>
+            <a href="{% url 'delete_' i.id %}">delete</a>
+            </h2>
+    {% endfor %}        
+                    
+</center>
+{% endblock content %}

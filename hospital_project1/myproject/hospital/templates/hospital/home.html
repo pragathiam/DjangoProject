@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+{% block content %}
+    <center>
+        <h2>Homepage </h2>
+
+    {% for i in data %}
+        <h2>{{i.id}}</h2>
+        <h2>{{i.title}}</h2>
+        <h2>{{i.desc}}</h2>
+        <a href="{% url 'update_patient' i.id %}" class="btn-read">update_patient</a>
+        <a href="{% url 'update_doctor' i.id %}" class="btn-read">update_doctor</a>
+        <a href="" class="btn-read">Complete</a>
+        <a href="{% url 'delete_patient' i.id %}" class="btn-read">delete_patient</a>
+        <a href="{% url 'delete_doctor' i.id %}" class="btn-read">delete_doctor</a>
+    {% endfor %}    
+
+    </center>
+{% endblock content %}

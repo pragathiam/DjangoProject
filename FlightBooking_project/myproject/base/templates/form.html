@@ -1,0 +1,14 @@
+% extends 'main.html' %}
+{% block content %}
+<center>
+     <h2> booking  </h2>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label for="">Title</label>
+        <input type="text" name="title_attr" required id=""> <br>
+        <label for="">desc</label>
+        <input type="text" name="desc_attr" required > <br>
+        <input type="submit">
+    </form>
+</center>
+{% endblock content %}

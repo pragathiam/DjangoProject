@@ -1,0 +1,72 @@
+/* .box1{
+        width:150px;
+        height:150px;
+        border:2px solid ;
+        padding-left:25px;
+        box-sizing:border-box;
+    }
+
+    .box2{
+        width:150px;
+        height:150px;
+        border-top:2px solid black;
+        border-right:1px dashed red;
+        border-bottom:3px dotted blue;
+        border-left:5px groove pink;
+    }
+
+    .box2:hover{
+        border-radius:50%;
+        background-color:pink;
+    }
+
+    .para{
+        font-size:1.5em;
+        font-family:'segoe UI',Tahoma,Geneva,Verdana,sana-serif;
+        font-style:italic;
+        font-weight:600;
+
+        text-align:left; #right,left,center,justify
+        text-transform:lowercase;
+        text-decoration:underline; #underline,overline,strike,line-through,line-through solid,line-through dotted,line-through wavy,underline wavy,
+        letter-spacing: 5px; 
+        word-spacing: 25px;
+    } */
+
+
+
+/* 2 */
+body{
+    background-image:url("https://cdn.pixabay.com/photo/2024/04/04/11/29/woman-8674934_1280.png");
+    background-repeat: no-repeat;
+    /* background-size:100vw 100vh; */
+    background-size:cover;   
+}
+.box1{
+    width:150px;
+    height:150px;
+    background-color:red;
+}
+.box2{
+    width:150px;
+    height:150px;
+    background-image:linear-gradient(-45deg,orange,white,green);
+}
+.box3{
+    width:150px;
+    height:150px;
+    background-image:radial-gradient(orange,white,green);
+    border-radius:50%;
+}
+/* .box4{
+    width:150px;
+    height:150px;
+    background-image:url("https://cdn.pixabay.com/photo/2024/04/04/11/29/woman-8674934_1280.png");
+    background-repeat:no-repeat;
+    background-size: cover;
+} */
+.box5{
+    width:150px;
+    height:150px;
+    background-image: linear-gradient(black,white,yellow,blue);
+}

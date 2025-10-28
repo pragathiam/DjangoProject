@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}
+        
+        {% endblock title %}</title>
+</head>
+<body>
+        <h1>Travels Website</h1>
+        <nav>
+            <a href="{% url 'Deals_and_offers' %}">Deals and offers</a> 
+            <a href="{% url 'Destinations' %}">Destinations</a> 
+            <a href="{% url 'Hotels' %}">Hotels</a>
+            <a href="{% url 'Holiday_package' %}">Holiday package</a>
+            <a href="{% url 'Support' %}">Support</a>
+        </nav>
+    <main>
+        {% block content %}
+    {% endblock content %}
+    </main> 
+</body>
+</html>

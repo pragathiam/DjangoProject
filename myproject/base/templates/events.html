@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+
+ {% block content %}
+<center>
+
+         <div class="event">
+
+            {% for i in articles_events %}
+
+                  <div class="data">
+                     
+                     <h3>{{i.id}}</h3>
+                     <h3>{{i.title}}</h3>
+                     <h3>{{i.desc | truncatewords:10}}</h3>
+                     <a href="{% url 'readmore' pk=i.id %}">Readmore</a>
+                  </div>
+
+            {% endfor %}
+
+         </div>
+
+</center>
+
+    {% endblock content %}
+    
