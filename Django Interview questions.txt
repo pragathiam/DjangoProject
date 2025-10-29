@@ -1,0 +1,458 @@
+🧱 1. Django Basics
+
+1. **What is Django, and why is it used?**  
+   Django is a high-level Python web framework that enables rapid development of secure and maintainable websites. It follows the MVT (Model-View-Template) architecture.
+
+2. **Advantages of using Django:**  
+   - Built-in admin interface  
+   - ORM for database operations  
+   - Scalable and secure  
+   - SEO-friendly URLs  
+   - Large community and documentation
+
+3. **Django vs Flask:**  
+   - Django: Full-stack, batteries-included, MVT architecture  
+   - Flask: Lightweight, micro-framework, more flexible but requires manual setup
+
+4. **What is MVT architecture?**  
+   - **Model**: Handles data and database  
+   - **View**: Contains business logic  
+   - **Template**: Deals with presentation layer
+
+5. **How does Django handle requests/responses?**  
+   Django uses URL routing to map requests to views, which return HttpResponse or JsonResponse objects.
+
+---
+
+## 🏗️ 2. Django Project & App Structure
+
+6. **Project vs App:**  
+   - Project: Entire web application  
+   - App: Modular component within a project
+
+7. **Create a Django project:**  
+   ```bash
+   django-admin startproject projectname
+   ```
+
+8. **Create an app and add to project:**  
+   ```bash
+   python manage.py startapp appname  
+   # Add 'appname' to INSTALLED_APPS in settings.py
+   ```
+
+9. **Role of settings.py:**  
+   Central configuration file for database, installed apps, middleware, templates, etc.
+
+10. **Purpose of manage.py:**  
+   Command-line utility to interact with Django project (e.g., runserver, migrate).
+
+---
+
+## 🗃️ 3. Django Models
+
+11. **What is a model?**  
+   A Python class that defines the structure of database tables using Django ORM.
+
+12. **Define a model:**
+   ```python
+   class Book(models.Model):
+       title = models.CharField(max_length=100)
+   ```
+
+13. **Common model fields:**  
+   - CharField  
+   - IntegerField  
+   - DateField  
+   - BooleanField  
+   - ForeignKey
+
+14. **Meta class purpose:**  
+   Provides metadata like ordering, verbose_name, db_table.
+
+15. **Relationships between models:**  
+   Use ForeignKey, OneToOneField, ManyToManyField.
+
+16. **ForeignKey vs OneToOne vs ManyToMany:**  
+   - ForeignKey: Many-to-one  
+   - OneToOne: One-to-one  
+   - ManyToMany: Many-to-many
+
+17. **get_absolute_url():**  
+   Returns canonical URL for an object, used in templates and redirects.
+
+18. **Apply migrations:**  
+   ```bash
+   python manage.py makemigrations  
+   python manage.py migrate
+   ```
+
+19. **makemigrations vs migrate:**  
+   - makemigrations: Creates migration files  
+   - migrate: Applies migrations to database
+
+20. **Query data using ORM:**
+   ```python
+   Book.objects.filter(title='Django')
+   ```
+
+---
+
+## 👁️ 4. Django Views
+
+21. **What are views?**  
+   Python functions or classes that handle HTTP requests and return responses.
+
+22. **FBV vs CBV:**  
+   - FBV: Simple, procedural  
+   - CBV: Reusable, object-oriented
+
+23. **Handle form submissions:**  
+   Use `request.POST` in views and validate with Django forms.
+
+24. **HttpResponse vs JsonResponse:**  
+   - HttpResponse: Returns plain HTML/text  
+   - JsonResponse: Returns JSON data
+
+25. **Mixins in CBV:**  
+   Reusable classes to add functionality (e.g., LoginRequiredMixin).
+
+26. **Pass data to template:**  
+   ```python
+   return render(request, 'template.html', {'key': value})
+   ```
+
+27. **Generic views:**  
+   Pre-built views like ListView, DetailView for common patterns.
+
+28. **Pagination:**  
+   Use `Paginator` class from `django.core.paginator`.
+
+29. **get_object_or_404():**  
+   Returns object or raises 404 if not found.
+
+## 🧩 5. Django Templates
+
+30. **Purpose of Django templates:**  
+    To separate presentation logic from business logic using HTML files with dynamic placeholders.
+
+31. **Create and render a template:**  
+    - Create an HTML file in the `templates/` directory  
+    - Use `render(request, 'template.html', context)` in views
+
+32. **Template tags and filters:**  
+    - Tags: `{% for %}`, `{% if %}`, `{% block %}`  
+    - Filters: `{{ name|lower }}`, `{{ date|date:"Y-m-d" }}`
+
+33. **Purpose of `{% block %}` and `{% extends %}`:**  
+    - `{% extends %}`: Inherit from a base template  
+    - `{% block %}`: Define replaceable sections
+
+34. **Include one template in another:**  
+    ```html
+    {% include 'header.html' %}
+    ```
+
+35. **Pass dynamic data to a template:**  
+    Use context dictionary in `render()` function.
+
+36. **Template inheritance and context processors:**  
+    - Inheritance: Reuse layout across pages  
+    - Context processors: Inject global variables into templates
+
+---
+
+## 📝 6. Django Forms
+
+37. **What is Django Forms?**  
+    A way to handle user input and validation.  
+    ```python
+    class ContactForm(forms.Form):
+        name = forms.CharField()
+    ```
+
+38. **Form validation:**  
+    Django automatically validates based on field types and custom `clean()` methods.
+
+39. **forms.Form vs forms.ModelForm:**  
+    - `Form`: Manual field definition  
+    - `ModelForm`: Auto-generates fields from a model
+
+40. **Use widgets in forms:**  
+    Customize input types  
+    ```python
+    forms.CharField(widget=forms.Textarea)
+    ```
+
+41. **Handle file uploads:**  
+    - Use `FileField` or `ImageField`  
+    - Set `enctype="multipart/form-data"` in HTML form
+
+42. **clean() method:**  
+    Used for custom validation logic across multiple fields.
+
+---
+
+## 🔐 7. Authentication & Authorization
+
+43. **Built-in authentication system:**  
+    Includes user login, logout, password management, and permissions.
+
+44. **Create custom user model:**  
+    Subclass `AbstractUser` or `AbstractBaseUser` and update `AUTH_USER_MODEL` in settings.
+
+45. **Authentication vs Authorization:**  
+    - Authentication: Verifying identity  
+    - Authorization: Granting access based on permissions
+
+46. **Implement login/logout:**  
+    Use `LoginView`, `LogoutView`, or `login()` and `logout()` functions.
+
+47. **login_required decorator:**  
+    Restricts access to views for authenticated users only.
+
+48. **Restrict views to authenticated users:**  
+    Use `@login_required` or `LoginRequiredMixin`.
+
+49. **Reset password:**  
+    Use Django’s built-in views: `PasswordResetView`, `PasswordChangeView`.
+
+50. **User permissions and groups:**  
+    Assign permissions via `User` and `Group` models using the admin or programmatically.
+
+---
+
+## 🧬 8. Django Middleware
+
+51. **What is middleware?**  
+    A layer that processes requests/responses globally before reaching views or after leaving them.
+
+52. **How Django processes middleware:**  
+    Middleware is executed in order defined in `MIDDLEWARE` setting.
+
+53. **Create custom middleware:**  
+    Define a class with `__call__()` or `process_request()` and `process_response()` methods.
+
+54. **Common built-in middleware:**  
+    - `SecurityMiddleware`  
+    - `AuthenticationMiddleware`  
+    - `SessionMiddleware`  
+    - `CsrfViewMiddleware`
+
+Perfect! Let’s keep the momentum going with the next sections of your Django interview prep guide 🚀
+
+---
+
+## 🌐 9. Django REST Framework (DRF)
+
+55. **What is DRF?**  
+    Django REST Framework is a powerful toolkit for building Web APIs using Django.
+
+56. **What are serializers in DRF?**  
+    They convert complex data types (like Django models) to JSON and vice versa.
+
+57. **ModelSerializer vs Serializer:**  
+    - `ModelSerializer`: Auto-generates fields from a model  
+    - `Serializer`: Manual field definition, more control
+
+58. **What are viewsets in DRF?**  
+    Classes that combine logic for multiple views (list, create, retrieve, update, delete).
+
+59. **Authentication classes in DRF:**  
+    - `BasicAuthentication`  
+    - `TokenAuthentication`  
+    - `SessionAuthentication`
+
+60. **Permissions in DRF:**  
+    Control access to views (e.g., `IsAuthenticated`, `IsAdminUser`, custom permissions).
+
+61. **API pagination:**  
+    Use `PageNumberPagination`, `LimitOffsetPagination`, or custom pagination classes.
+
+62. **Throttling in DRF:**  
+    Limits the rate of requests using `AnonRateThrottle`, `UserRateThrottle`.
+
+63. **FBV vs CBV in DRF:**  
+    - FBV: Simple, explicit  
+    - CBV: Reusable, scalable with mixins and generics
+
+64. **Token-based authentication:**  
+    DRF provides token authentication via `TokenAuthentication` and `rest_framework.authtoken`.
+
+65. **JWT authentication:**  
+    Use third-party packages like `djangorestframework-simplejwt` to implement JSON Web Tokens.
+
+---
+
+## 🧮 10. Django ORM & QuerySet
+
+66. **What is Django ORM?**  
+    Object-Relational Mapper that lets you interact with the database using Python code.
+
+67. **Filter data:**  
+    ```python
+    Book.objects.filter(author='Alice')
+    ```
+
+68. **all() vs filter() vs get() vs exclude():**  
+    - `all()`: Returns all records  
+    - `filter()`: Returns matching records  
+    - `get()`: Returns single record or raises error  
+    - `exclude()`: Returns records not matching condition
+
+69. **Database joins:**  
+    Use related fields like `ForeignKey` and query with `select_related()` or `prefetch_related()`.
+
+70. **Order QuerySet results:**  
+    ```python
+    Book.objects.order_by('title')
+    ```
+
+71. **F() expressions:**  
+    Used for referencing model fields directly in queries (e.g., incrementing a value).
+
+72. **Aggregation and annotation:**  
+    - `aggregate()`: Summary values (e.g., count, avg)  
+    - `annotate()`: Adds calculated fields to each object
+
+73. **Update/delete records:**  
+    ```python
+    Book.objects.filter(id=1).update(title='New')  
+    Book.objects.filter(id=1).delete()
+    ```
+
+## ⚡ 11. Django Caching
+
+74. **What is caching?**  
+    Storing data temporarily to reduce database hits and improve performance.
+
+75. **Types of caching:**  
+    - File-based  
+    - In-memory (e.g., Memcached, Redis)  
+    - Database caching  
+    - Per-view or template fragment caching
+
+76. **Enable caching:**  
+    Configure `CACHES` in `settings.py` and use decorators like `@cache_page`.
+
+77. **Memcached in Django:**  
+    A high-performance caching system supported via `django.core.cache.backends.memcached`.
+
+---
+
+## 🚀 12. Deployment & Performance
+
+78. **Deploy a Django app:**  
+    Use services like Heroku, AWS, or DigitalOcean. Set up WSGI/ASGI, static files, and environment variables.
+
+79. **WSGI vs ASGI:**  
+    - WSGI: Synchronous interface  
+    - ASGI: Supports async, WebSockets
+
+80. **Gunicorn:**  
+    A Python WSGI HTTP server used to serve Django apps in production.
+
+81. **Configure with Nginx/Apache:**  
+    Use Nginx/Apache as reverse proxy to serve static files and forward requests to Gunicorn.
+
+82. **STATIC_URL vs MEDIA_URL:**  
+    - `STATIC_URL`: For static assets (CSS, JS)  
+    - `MEDIA_URL`: For user-uploaded files
+
+83. **Handle environment variables:**  
+    Use `python-decouple` or `os.environ` to manage secrets and settings securely.
+
+84. **Performance best practices:**  
+    - Use caching  
+    - Optimize queries  
+    - Minify assets  
+    - Use CDN  
+    - Enable gzip compression
+
+You're doing great! Here's the final stretch of your Django interview prep guide 💪
+
+---
+
+## 📡 13. Django Signals
+
+85. **What are signals in Django?**  
+    Signals allow decoupled applications to get notified when certain actions occur (e.g., model save, delete).
+
+86. **Create and use signals:**  
+    ```python
+    from django.db.models.signals import post_save
+    from django.dispatch import receiver
+
+    @receiver(post_save, sender=User)
+    def create_profile(sender, instance, created, **kwargs):
+        if created:
+            Profile.objects.create(user=instance)
+    ```
+
+87. **Common use cases:**  
+    - Create related models (e.g., Profile on User creation)  
+    - Send notifications  
+    - Log changes
+
+---
+
+## 🔐 14. Django Security
+
+88. **Prevent SQL injection:**  
+    Django ORM uses parameterized queries, which automatically escape inputs.
+
+89. **CSRF and XSS protection:**  
+    - CSRF: Prevents cross-site request forgery using tokens  
+    - XSS: Escapes HTML in templates by default
+
+90. **Enable HTTPS:**  
+    - Use SSL certificates  
+    - Set `SECURE_SSL_REDIRECT = True` in settings
+
+91. **X-Frame-Options and SECURE_BROWSER_XSS_FILTER:**  
+    - `X-Frame-Options`: Prevents clickjacking  
+    - `SECURE_BROWSER_XSS_FILTER`: Enables browser-level XSS protection
+
+92. **Secure user authentication:**  
+    - Use Django’s built-in auth system  
+    - Hash passwords with PBKDF2  
+    - Use HTTPS and secure cookies
+
+---
+
+## 🧠 15. Miscellaneous & Advanced Concepts
+
+93. **What is Celery?**  
+    A task queue for handling asynchronous tasks (e.g., sending emails, background jobs).
+
+94. **Schedule periodic tasks:**  
+    Use Celery with `celery.beat` or tools like `django-cron`.
+
+95. **Use WebSockets with Django:**  
+    Use Django Channels to handle real-time communication.
+
+96. **Integrate third-party APIs:**  
+    Use `requests` or `httpx` to make API calls and process responses.
+
+97. **Management commands:**  
+    Custom scripts run via `manage.py` for tasks like data import/export.
+
+98. **Create custom management command:**  
+    ```bash
+    python manage.py startapp core
+    # In core/management/commands/mycommand.py:
+    from django.core.management.base import BaseCommand
+
+    class Command(BaseCommand):
+        def handle(self, *args, **kwargs):
+            self.stdout.write("Hello from custom command!")
+    ```
+
+99. **Django signals (again):**  
+    Used for decoupled event handling—triggered on model actions like save, delete.
+
+100. **Integrate with React or Vue:**  
+    - Use Django as backend (API via DRF)  
+    - Serve frontend separately or embed via templates  
+    - Use tools like Webpack or Vite for bundling
+

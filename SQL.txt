@@ -1,0 +1,932 @@
+	
+# 🟢 **SQL INTERVIEW QUESTIONS & ANSWERS (Basic → Advanced)**
+
+---
+
+## 🧩 **1. Introduction to SQL**
+
+### Q1. What is SQL?
+
+SQL (Structured Query Language) is used to **store, manage, and retrieve data** from relational databases like MySQL, SQL Server, Oracle, and PostgreSQL.
+
+---
+
+### Q2. What are the different types of SQL commands?
+
+| Command Type                       | Purpose                | Examples                          |
+| ---------------------------------- | ---------------------- | --------------------------------- |
+| DDL (Data Definition Language)     | Define structure       | `CREATE`, `ALTER`, `DROP`         |
+| DML (Data Manipulation Language)   | Manage data            | `INSERT`, `UPDATE`, `DELETE`      |
+| DQL (Data Query Language)          | Fetch data             | `SELECT`                          |
+| DCL (Data Control Language)        | Access control         | `GRANT`, `REVOKE`                 |
+| TCL (Transaction Control Language) | Transaction management | `COMMIT`, `ROLLBACK`, `SAVEPOINT` |
+
+---
+
+### Q3. What is a database?
+
+A **database** is an organized collection of data stored electronically and accessed using SQL.
+
+---
+
+### Q4. What is a table?
+
+A **table** is a collection of related data organized into rows (records) and columns (fields).
+
+---
+
+### Q5. What is a primary key?
+
+A **primary key** uniquely identifies each record in a table.
+
+* Cannot be `NULL`
+* Must be **unique**
+
+```sql
+CREATE TABLE Students (
+   student_id INT PRIMARY KEY,
+   name VARCHAR(50)
+);
+```
+
+---
+
+### Q6. What is a foreign key?
+
+A **foreign key** is a column that creates a relationship between two tables.
+
+```sql
+CREATE TABLE Orders (
+   order_id INT PRIMARY KEY,
+   student_id INT,
+   FOREIGN KEY (student_id) REFERENCES Students(student_id)
+);
+```
+
+---
+
+### Q7. What is a unique key?
+
+A **unique key** ensures all values in a column are distinct but allows one NULL.
+
+---
+
+### Q8. What is the difference between PRIMARY KEY and UNIQUE?
+
+| Primary Key        | Unique Key       |
+| ------------------ | ---------------- |
+| Only one per table | Multiple allowed |
+| Cannot be NULL     | Allows one NULL  |
+
+---
+
+## 🧮 **2. SQL Basic Queries**
+
+### Q9. How to display all records from a table?
+
+```sql
+SELECT * FROM Employees;
+```
+
+---
+
+### Q10. How to display specific columns?
+
+```sql
+SELECT name, salary FROM Employees;
+```
+
+---
+
+### Q11. How to remove duplicate records?
+
+```sql
+SELECT DISTINCT department FROM Employees;
+```
+
+---
+
+### Q12. How to sort records?
+
+```sql
+SELECT * FROM Employees ORDER BY salary DESC;
+```
+
+---
+
+### Q13. How to filter records?
+
+```sql
+SELECT * FROM Employees WHERE salary > 50000;
+```
+
+---
+
+### Q14. How to use multiple conditions?
+
+```sql
+SELECT * FROM Employees WHERE department='IT' AND salary > 40000;
+```
+
+---
+
+### Q15. How to find NULL values?
+
+```sql
+SELECT * FROM Employees WHERE manager_id IS NULL;
+```
+
+---
+
+## 🧠 **3. SQL Functions**
+
+### Q16. What are SQL aggregate functions?
+
+| Function  | Purpose         |
+| --------- | --------------- |
+| `COUNT()` | Counts rows     |
+| `SUM()`   | Adds values     |
+| `AVG()`   | Averages values |
+| `MIN()`   | Finds minimum   |
+| `MAX()`   | Finds maximum   |
+
+Example:
+
+```sql
+SELECT COUNT(*), AVG(salary) FROM Employees;
+```
+
+---
+
+### Q17. What are scalar functions?
+
+Functions that work on individual values.
+
+* `LCASE()` / `LOWER()`
+* `UCASE()` / `UPPER()`
+* `LEN()` / `LENGTH()`
+* `SUBSTRING()`
+
+---
+
+### Q18. How to rename a column in output?
+
+```sql
+SELECT name AS EmployeeName, salary AS MonthlySalary FROM Employees;
+```
+
+---
+
+### Q19. How to use `LIKE` operator?
+
+Used for pattern matching.
+
+```sql
+SELECT * FROM Employees WHERE name LIKE 'A%';  -- starts with A
+SELECT * FROM Employees WHERE name LIKE '%n';  -- ends with n
+```
+
+---
+
+## 🔁 **4. SQL Joins**
+
+### Q20. What is a JOIN?
+
+A **JOIN** combines rows from two or more tables based on a related column.
+
+---
+
+### Q21. Types of Joins:
+
+| Type       | Description                                      |
+| ---------- | ------------------------------------------------ |
+| INNER JOIN | Returns only matching records                    |
+| LEFT JOIN  | Returns all from left table + matched from right |
+| RIGHT JOIN | Returns all from right table + matched from left |
+| FULL JOIN  | Returns all records from both tables             |
+| CROSS JOIN | All combinations (cartesian product)             |
+
+---
+
+### Example:
+
+```sql
+SELECT E.name, D.department_name
+FROM Employees E
+INNER JOIN Departments D
+ON E.department_id = D.department_id;
+```
+
+---
+
+## 🧾 **5. SQL GROUP BY & HAVING**
+
+### Q22. What is GROUP BY used for?
+
+Groups rows with same values and allows aggregate functions.
+
+```sql
+SELECT department, AVG(salary)
+FROM Employees
+GROUP BY department;
+```
+
+---
+
+### Q23. Difference between WHERE and HAVING?
+
+| WHERE                        | HAVING                        |
+| ---------------------------- | ----------------------------- |
+| Filters rows before grouping | Filters groups after grouping |
+| Used with any column         | Used with aggregate functions |
+
+Example:
+
+```sql
+SELECT department, COUNT(*)
+FROM Employees
+GROUP BY department
+HAVING COUNT(*) > 5;
+```
+
+---
+
+## ⚙️ **6. SQL Subqueries**
+
+### Q24. What is a subquery?
+
+A query inside another query.
+
+```sql
+SELECT name FROM Employees
+WHERE salary > (SELECT AVG(salary) FROM Employees);
+```
+
+---
+
+### Q25. What are correlated subqueries?
+
+Subqueries that depend on the outer query.
+
+```sql
+SELECT name FROM Employees e
+WHERE salary > (SELECT AVG(salary) FROM Employees WHERE department=e.department);
+```
+
+---
+
+## 🧩 **7. SQL Constraints**
+
+### Q26. Types of constraints:
+
+* **NOT NULL**
+* **UNIQUE**
+* **PRIMARY KEY**
+* **FOREIGN KEY**
+* **CHECK**
+* **DEFAULT**
+
+Example:
+
+```sql
+CREATE TABLE Products(
+   id INT PRIMARY KEY,
+   price INT CHECK(price > 0),
+   stock INT DEFAULT 100
+);
+```
+
+---
+
+## 💾 **8. SQL Set Operators**
+
+### Q27. What are set operators?
+
+| Operator       | Description                           |
+| -------------- | ------------------------------------- |
+| UNION          | Combines results (removes duplicates) |
+| UNION ALL      | Includes duplicates                   |
+| INTERSECT      | Common records                        |
+| MINUS / EXCEPT | Records in first but not in second    |
+
+---
+
+### Example:
+
+```sql
+SELECT name FROM Employees
+UNION
+SELECT name FROM Managers;
+```
+
+---
+
+## 🧮 **9. SQL Keys and Indexing**
+
+### Q28. What is an index?
+
+An index improves query performance by reducing search time.
+
+```sql
+CREATE INDEX idx_name ON Employees(name);
+```
+
+---
+
+### Q29. What are clustered and non-clustered indexes?
+
+| Type          | Description                                   |
+| ------------- | --------------------------------------------- |
+| Clustered     | Sorts and stores data rows physically         |
+| Non-clustered | Creates a separate structure pointing to data |
+
+---
+
+## ⚡ **10. SQL Views and Transactions**
+
+### Q30. What is a view?
+
+A virtual table based on the result of a query.
+
+```sql
+CREATE VIEW emp_high_salary AS
+SELECT name, salary FROM Employees WHERE salary > 60000;
+```
+
+---
+
+### Q31. What are transactions?
+
+A sequence of operations treated as a single unit.
+
+---
+
+### Q32. What are ACID properties?
+
+* **A** – Atomicity
+* **C** – Consistency
+* **I** – Isolation
+* **D** – Durability
+
+---
+
+### Q33. What is COMMIT and ROLLBACK?
+
+* **COMMIT:** Save changes permanently
+* **ROLLBACK:** Undo uncommitted changes
+
+---
+
+## 🧠 **11. Advanced SQL Questions**
+
+### Q34. Find the 2nd highest salary.
+
+```sql
+SELECT MAX(salary)
+FROM Employees
+WHERE salary < (SELECT MAX(salary) FROM Employees);
+```
+
+---
+
+### Q35. Find duplicate records.
+
+```sql
+SELECT name, COUNT(*)
+FROM Employees
+GROUP BY name
+HAVING COUNT(*) > 1;
+```
+
+---
+
+### Q36. Find employees who don’t have managers.
+
+```sql
+SELECT * FROM Employees WHERE manager_id IS NULL;
+```
+
+---
+
+### Q37. Find top 3 salaries.
+
+```sql
+SELECT DISTINCT salary
+FROM Employees
+ORDER BY salary DESC
+LIMIT 3;
+```
+
+---
+
+### Q38. Find employees earning more than their department average.
+
+```sql
+SELECT name, salary, department
+FROM Employees e
+WHERE salary > (
+   SELECT AVG(salary) FROM Employees WHERE department = e.department
+);
+```
+
+---
+
+### Q39. Delete duplicate records but keep one.
+
+```sql
+DELETE FROM Employees
+WHERE rowid NOT IN (
+  SELECT MIN(rowid) FROM Employees GROUP BY name
+);
+```
+
+---
+
+### Q40. Display department name with total employees.
+
+```sql
+SELECT department, COUNT(*) AS total_employees
+FROM Employees
+GROUP BY department;
+```
+
+---
+
+### Q41. Find the nth highest salary (MySQL version).
+
+```sql
+SELECT DISTINCT salary
+FROM Employees e1
+WHERE N-1 = (
+   SELECT COUNT(DISTINCT salary)
+   FROM Employees e2
+   WHERE e2.salary > e1.salary
+);
+```
+
+Excellent 👍 — here’s **Part 2: SQL Interview Questions & Answers (Basic ➝ Advanced)** — a complete guide that covers **queries, joins, subqueries, normalization, functions, indexes, and real-time scenarios**.
+Perfect for **freshers and full-stack developer roles** (like Microsoft, TCS, Wipro, Capgemini, Infosys, and startups).
+
+---
+
+## 🟢 **SQL INTERVIEW QUESTIONS — PART 2**
+
+---
+
+### 🔹 **1. What are constraints in SQL?**
+
+**Answer:**
+Constraints are rules applied on table columns to maintain data integrity.
+**Types:**
+
+* `NOT NULL` – Ensures a column cannot have NULL value
+* `UNIQUE` – Ensures all values in a column are unique
+* `PRIMARY KEY` – Uniquely identifies each record
+* `FOREIGN KEY` – Links two tables
+* `CHECK` – Ensures a condition is true
+* `DEFAULT` – Sets a default value
+
+---
+
+### 🔹 **2. What is the difference between PRIMARY KEY and UNIQUE?**
+
+| PRIMARY KEY        | UNIQUE             |
+| ------------------ | ------------------ |
+| Only one per table | Multiple allowed   |
+| Auto indexed       | Not always indexed |
+| Cannot be NULL     | Can contain NULL   |
+
+---
+
+### 🔹 **3. What is a FOREIGN KEY?**
+
+A **foreign key** links a record in one table to another table’s primary key.
+Example:
+
+```sql
+CREATE TABLE Orders (
+  OrderID INT PRIMARY KEY,
+  CustomerID INT,
+  FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+);
+```
+
+---
+
+### 🔹 **4. What are Joins?**
+
+Joins combine rows from two or more tables using a related column.
+
+**Types of Joins:**
+
+* `INNER JOIN` – Common records in both tables
+* `LEFT JOIN` – All records from left + matched from right
+* `RIGHT JOIN` – All records from right + matched from left
+* `FULL JOIN` – All records from both sides
+* `CROSS JOIN` – Cartesian product
+
+---
+
+### 🔹 **5. Example of INNER JOIN**
+
+```sql
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+INNER JOIN Orders
+ON Customers.CustomerID = Orders.CustomerID;
+```
+
+---
+
+### 🔹 **6. What is a SELF JOIN?**
+
+A table joined with itself.
+
+```sql
+SELECT A.EmpName AS Employee, B.EmpName AS Manager
+FROM Employees A
+JOIN Employees B
+ON A.ManagerID = B.EmpID;
+```
+
+---
+
+### 🔹 **7. What is a CROSS JOIN?**
+
+Returns **all combinations** of rows between two tables.
+
+```sql
+SELECT * FROM Products CROSS JOIN Categories;
+```
+
+---
+
+### 🔹 **8. What is a Subquery?**
+
+A query inside another query.
+
+```sql
+SELECT Name
+FROM Employees
+WHERE Salary > (SELECT AVG(Salary) FROM Employees);
+```
+
+---
+
+### 🔹 **9. What are the types of Subqueries?**
+
+* **Single Row Subquery**
+* **Multiple Row Subquery**
+* **Correlated Subquery**
+
+---
+
+### 🔹 **10. What is a Correlated Subquery?**
+
+It uses values from the outer query.
+
+```sql
+SELECT e1.EmpName
+FROM Employees e1
+WHERE e1.Salary > (
+    SELECT AVG(e2.Salary)
+    FROM Employees e2
+    WHERE e1.DepartmentID = e2.DepartmentID
+);
+```
+
+---
+
+### 🔹 **11. What are Aggregate Functions?**
+
+They perform calculations on a set of values and return a single value.
+Examples:
+
+* `COUNT()`
+* `SUM()`
+* `AVG()`
+* `MIN()`
+* `MAX()`
+
+---
+
+### 🔹 **12. What are Scalar Functions?**
+
+Operate on individual values.
+Examples:
+
+* `UPPER()`, `LOWER()`
+* `LEN()`
+* `ROUND()`
+* `GETDATE()`
+* `CONCAT()`
+
+---
+
+### 🔹 **13. What is GROUP BY used for?**
+
+Groups rows with same values into summary rows.
+
+```sql
+SELECT Department, COUNT(*) 
+FROM Employees
+GROUP BY Department;
+```
+
+---
+
+### 🔹 **14. What is HAVING clause?**
+
+Used with `GROUP BY` to filter groups.
+
+```sql
+SELECT Department, COUNT(*)
+FROM Employees
+GROUP BY Department
+HAVING COUNT(*) > 5;
+```
+
+---
+
+### 🔹 **15. Difference between WHERE and HAVING?**
+
+| WHERE                          | HAVING                      |
+| ------------------------------ | --------------------------- |
+| Used before GROUP BY           | Used after GROUP BY         |
+| Filters rows                   | Filters groups              |
+| Cannot use aggregate functions | Can use aggregate functions |
+
+---
+
+### 🔹 **16. What is an Index in SQL?**
+
+An index improves query performance by allowing faster lookups.
+
+```sql
+CREATE INDEX idx_emp_name ON Employees(Name);
+```
+
+---
+
+### 🔹 **17. What are the types of Indexes?**
+
+* Clustered Index
+* Non-Clustered Index
+* Unique Index
+* Composite Index
+
+---
+
+### 🔹 **18. What is the difference between Clustered and Non-clustered Index?**
+
+| Clustered                  | Non-Clustered         |
+| -------------------------- | --------------------- |
+| Sorts and stores data rows | Separate structure    |
+| One per table              | Multiple allowed      |
+| Faster for reading         | Slower than clustered |
+
+---
+
+### 🔹 **19. What is Normalization?**
+
+Process of organizing data to avoid redundancy.
+
+**Normal Forms:**
+
+1. **1NF** – Atomic values
+2. **2NF** – No partial dependency
+3. **3NF** – No transitive dependency
+4. **BCNF** – Advanced version of 3NF
+
+---
+
+### 🔹 **20. What is Denormalization?**
+
+Reversing normalization to improve query performance by adding redundancy.
+
+---
+
+### 🔹 **21. What is a View?**
+
+A virtual table based on a query.
+
+```sql
+CREATE VIEW ActiveEmployees AS
+SELECT Name, Department
+FROM Employees
+WHERE Status='Active';
+```
+
+---
+
+### 🔹 **22. What is a Stored Procedure?**
+
+A precompiled group of SQL statements.
+
+```sql
+CREATE PROCEDURE GetEmployee
+AS
+SELECT * FROM Employees;
+```
+
+---
+
+### 🔹 **23. What is a Trigger?**
+
+A trigger automatically executes after an event (INSERT, UPDATE, DELETE).
+
+```sql
+CREATE TRIGGER trg_Update
+AFTER UPDATE ON Employees
+FOR EACH ROW
+BEGIN
+  INSERT INTO Logs VALUES ('Employee updated');
+END;
+```
+
+---
+
+### 🔹 **24. What is the difference between DELETE, TRUNCATE, and DROP?**
+
+| Command  | Deletes Data   | Rollback | Removes Table Structure |
+| -------- | -------------- | -------- | ----------------------- |
+| DELETE   | Yes            | Yes      | No                      |
+| TRUNCATE | Yes (all rows) | No       | No                      |
+| DROP     | Yes            | No       | Yes                     |
+
+---
+
+### 🔹 **25. What is the difference between UNION and UNION ALL?**
+
+| UNION              | UNION ALL        |
+| ------------------ | ---------------- |
+| Removes duplicates | Keeps duplicates |
+| Slower             | Faster           |
+
+---
+
+### 🔹 **26. What is COALESCE()?**
+
+Returns the first non-null value.
+
+```sql
+SELECT COALESCE(NULL, NULL, 'Hello');
+-- Output: Hello
+```
+
+---
+
+### 🔹 **27. What is the difference between CHAR and VARCHAR?**
+
+| CHAR         | VARCHAR          |
+| ------------ | ---------------- |
+| Fixed length | Variable length  |
+| Faster       | Memory efficient |
+
+---
+
+### 🔹 **28. What are Window Functions?**
+
+Functions that perform calculations across a set of rows related to the current row.
+
+```sql
+SELECT Name, Salary,
+RANK() OVER (ORDER BY Salary DESC) AS Rank
+FROM Employees;
+```
+
+---
+
+### 🔹 **29. What is a Common Table Expression (CTE)?**
+
+A temporary result set defined using `WITH`.
+
+```sql
+WITH DeptCount AS (
+  SELECT Department, COUNT(*) AS EmpCount
+  FROM Employees
+  GROUP BY Department
+)
+SELECT * FROM DeptCount WHERE EmpCount > 5;
+```
+
+---
+
+### 🔹 **30. What is a CASE statement?**
+
+Conditional logic in SQL.
+
+```sql
+SELECT Name,
+CASE 
+  WHEN Salary > 50000 THEN 'High'
+  ELSE 'Low'
+END AS SalaryRange
+FROM Employees;
+```
+
+---
+
+### 🔹 **31. How to find the second highest salary?**
+
+```sql
+SELECT MAX(Salary)
+FROM Employees
+WHERE Salary < (SELECT MAX(Salary) FROM Employees);
+```
+
+---
+
+### 🔹 **32. How to find duplicate records in a table?**
+
+```sql
+SELECT Name, COUNT(*)
+FROM Employees
+GROUP BY Name
+HAVING COUNT(*) > 1;
+```
+
+---
+
+### 🔹 **33. How to delete duplicate rows?**
+
+```sql
+DELETE FROM Employees
+WHERE ID NOT IN (
+  SELECT MIN(ID)
+  FROM Employees
+  GROUP BY Name
+);
+```
+
+---
+
+### 🔹 **34. How to fetch top 3 salaries from a table?**
+
+```sql
+SELECT DISTINCT Salary
+FROM Employees
+ORDER BY Salary DESC
+LIMIT 3;
+```
+
+---
+
+### 🔹 **35. What is ACID Property?**
+
+Ensures reliability of transactions:
+
+* **Atomicity** – All or nothing
+* **Consistency** – Data integrity
+* **Isolation** – No interference between transactions
+* **Durability** – Permanent storage
+
+---
+
+### 🔹 **36. What is a Transaction?**
+
+A group of SQL operations executed as a single unit.
+
+```sql
+BEGIN TRANSACTION;
+UPDATE Accounts SET Balance = Balance - 100 WHERE ID = 1;
+UPDATE Accounts SET Balance = Balance + 100 WHERE ID = 2;
+COMMIT;
+```
+
+---
+
+### 🔹 **37. What are SQL Injection Attacks?**
+
+When malicious users insert harmful SQL commands into inputs.
+**Prevention:** Use prepared statements or parameterized queries.
+
+---
+
+### 🔹 **38. Difference between OLTP and OLAP?**
+
+| OLTP                 | OLAP                     |
+| -------------------- | ------------------------ |
+| Transactional system | Analytical system        |
+| Real-time operations | Historical data analysis |
+| Insert/Update heavy  | Read heavy               |
+
+---
+
+### 🔹 **39. What are Temporary Tables?**
+
+Tables that exist temporarily during a session.
+
+```sql
+CREATE TEMPORARY TABLE temp_data (id INT, name VARCHAR(50));
+```
+
+---
+
+### 🔹 **40. How do you find employees with no manager?**
+
+```sql
+SELECT * FROM Employees
+WHERE ManagerID IS NULL;
+```
+

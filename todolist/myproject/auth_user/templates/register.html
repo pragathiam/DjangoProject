@@ -1,0 +1,25 @@
+{% extends 'main.html'%}
+{% block content %}
+<center>
+<h3>Regitser Here</h3>
+<div class="home">
+     {% if Status %}
+            <h2 style="color: red;">username already taken...please user differnt username!!!</h2>
+     {% endif %}
+<form action="" method="post">
+        {% csrf_token %}
+    <label for="">First Name</label>
+    <input type="text" name="first_name"><br>
+    <label for="">Last Name</label>
+    <input type="text" name="last_name"><br>
+    <label for="">Email</label>
+    <input type="email" name="email"><br>
+    <label for="">User Name</label>
+    <input type="text" name="username"><br>
+    <label for="">Password</label>
+    <input type="password" name="password"><br>
+    <input type="submit" value="Register">
+</form>
+</div>
+</center>
+{% endblock content %}

@@ -1,0 +1,289 @@
+Excellent — these are **core Django REST Framework (DRF) interview questions** 👏 covering **API concepts, serialization, data flow, and HTTP basics**.
+
+Here’s a **clear, step-by-step explanation with direct answers** 👇
+
+---
+
+## 🧩 **API & REST API**
+
+### 1️⃣ What is API?
+
+**API (Application Programming Interface)**
+→ A set of rules that allows two applications to **communicate** with each other.
+Example: Django backend ↔ Frontend (React / Android / Postman).
+
+---
+
+### 2️⃣ What is REST API?
+
+**REST (Representational State Transfer)**
+→ A style of web service that uses **HTTP methods** to perform operations on data (resources).
+
+**Operations (CRUD):**
+
+| Operation | HTTP Method | Description       |
+| --------- | ----------- | ----------------- |
+| Create    | POST        | Create new record |
+| Read      | GET         | Retrieve data     |
+| Update    | PUT / PATCH | Modify data       |
+| Delete    | DELETE      | Remove data       |
+
+---
+
+### 3️⃣ Purpose of API
+
+→ To **exchange data** between client and server in a structured, secure, and efficient way — usually in **JSON format**.
+
+---
+
+## 🧱 **MODEL INSTANCE**
+
+### 4️⃣ What is a model instance?
+
+A **model instance** is a **single record** (object) of a model.
+Example:
+
+```python
+student = Student.objects.get(id=1)
+```
+
+Here `student` is a **model instance** of `Student`.
+
+---
+
+## 🔁 **DATA FLOW & SERIALIZATION**
+
+### 5️⃣ What is the flow of data conversion in DRF?
+
+**Flow:**
+
+```
+Model Instance  →  Python Native Data  →  JSON Data  (for sending)
+JSON Data  →  Python Native Data  →  Model Instance (for receiving)
+```
+
+---
+
+### 6️⃣ What type of data format is sent on API?
+
+→ Usually **JSON (JavaScript Object Notation)** — lightweight, human-readable data format.
+
+---
+
+### 7️⃣ How to convert model instance to Python data type?
+
+Using **Serializer**:
+
+```python
+serializer = StudentSerializer(student)
+serializer.data   # converts model instance → Python dict
+```
+
+---
+
+### 8️⃣ From serialized model how many classes are there to create a serializer?
+
+→ There are **two main serializer classes**:
+
+1. `Serializer` (manual fields & methods)
+2. `ModelSerializer` (automatically generates fields from model)
+
+---
+
+### 9️⃣ Difference between `Serializer` and `ModelSerializer`
+
+| Serializer                            | ModelSerializer                  |
+| ------------------------------------- | -------------------------------- |
+| You define all fields manually        | Fields auto-generated from model |
+| More control, but longer              | Faster, less code                |
+| Need to write `create()` & `update()` | Automatically handled            |
+
+---
+
+### 🔟 How to send data to serializer & what is the 2nd argument?
+
+```python
+serializer = StudentSerializer(data=request.data)
+```
+
+* **1st argument:** data to be validated
+* **2nd argument:** keyword `data=` used to indicate incoming **request data**
+
+---
+
+### 11️⃣ What type of data will be written serialized?
+
+→ **Python native datatypes** (like dict, list, int, str, bool, etc.)
+
+---
+
+### 12️⃣ How to convert Python data to JSON data?
+
+Using **JSONRenderer**:
+
+```python
+from rest_framework.renderers import JSONRenderer
+json_data = JSONRenderer().render(serializer.data)
+```
+
+---
+
+## 💬 **RESPONSE & RENDERING**
+
+### 13️⃣ What is JSONRenderer and Response class?
+
+* **JSONRenderer** → Converts Python dictionary → JSON string
+* **Response** → Sends the final response to client (automatically renders JSON)
+  Example:
+
+```python
+from rest_framework.response import Response
+return Response(serializer.data)
+```
+
+---
+
+### 14️⃣ What is HTTP Status?
+
+**HTTP Status codes** indicate **response result** of an API call.
+
+**Main categories:**
+
+| Category | Range         | Meaning        |
+| -------- | ------------- | -------------- |
+| 1xx      | Informational | Processing     |
+| 2xx      | Success       | Operation done |
+| 3xx      | Redirection   | Redirecting    |
+| 4xx      | Client Error  | Wrong request  |
+| 5xx      | Server Error  | Internal issue |
+
+**Common codes:**
+
+* `200 OK` → Success
+* `201 Created` → Data created
+* `400 Bad Request` → Validation error
+* `404 Not Found` → Invalid URL/object
+* `500 Internal Server Error` → Server crash
+
+---
+
+### 15️⃣ What type of data will you write in the form of PUT?
+
+→ **Complete object data** (all fields).
+Example:
+
+```json
+{
+  "id": 1,
+  "name": "John",
+  "marks": 90
+}
+```
+
+*(Use PATCH for partial updates.)*
+
+---
+
+### 16️⃣ Difference between JSONRenderer, HttpResponse, Response class, and JsonResponse
+
+| Class              | Description                                                        |
+| ------------------ | ------------------------------------------------------------------ |
+| **JSONRenderer**   | Converts Python data → JSON bytes (low-level)                      |
+| **HttpResponse**   | Basic Django response (not auto JSON)                              |
+| **JsonResponse**   | Django class that converts dict → JSON                             |
+| **Response (DRF)** | DRF class that handles content negotiation, rendering, and headers |
+
+---
+
+## 🌊 **STREAMING & UPDATE**
+
+### 17️⃣ How to stream and pass data & why?
+
+Use **BytesIO stream** to read JSON → Python:
+
+```python
+import io
+from rest_framework.parsers import JSONParser
+
+stream = io.BytesIO(json_data)
+data = JSONParser().parse(stream)
+```
+
+👉 Used to manually parse incoming JSON data in low-level API views.
+
+---
+
+### 18️⃣ For update operation what is the 3rd argument you will pass to the serializer & why will you pass `partial`?
+
+```python
+serializer = StudentSerializer(instance, data=request.data, partial=True)
+```
+
+* **3rd argument:** `partial=True`
+* **Purpose:** To allow **partial updates** (updating few fields only instead of all).
+
+---
+
+### 19️⃣ Which method is used for update module?
+
+→ `update()` method inside the serializer class.
+
+---
+
+## 🧩 **API VIEW DECORATOR**
+
+### 20️⃣ For what purpose is `@api_view` decorator used?
+
+→ Converts a **regular Django view** into a **DRF API view**, enabling request methods like GET, POST, PUT, DELETE.
+
+Example:
+
+```python
+from rest_framework.decorators import api_view
+
+@api_view(['GET', 'POST'])
+def student_list(request):
+    ...
+```
+
+---
+
+## 📦 **IMPORT STATEMENTS**
+
+### 21️⃣ Explain all import statements
+
+Example:
+
+```python
+from rest_framework.decorators import api_view   # to make API view
+from rest_framework.response import Response      # to return data
+from rest_framework import status                 # for HTTP status codes
+from rest_framework.parsers import JSONParser     # to parse JSON
+from rest_framework.renderers import JSONRenderer # to convert to JSON
+from .models import Student                       # model
+from .serializers import StudentSerializer         # serializer class
+```
+
+---
+
+## ✅ **STATUS MODULE**
+
+### 22️⃣ How will you create using status module?
+
+```python
+from rest_framework import status
+return Response({"msg": "Created Successfully"}, status=status.HTTP_201_CREATED)
+```
+
+**Common statuses:**
+
+* `status.HTTP_200_OK`
+* `status.HTTP_201_CREATED`
+* `status.HTTP_400_BAD_REQUEST`
+* `status.HTTP_404_NOT_FOUND`
+* `status.HTTP_500_INTERNAL_SERVER_ERROR`
+
+---
+
+Would you like me to make this into a **well-formatted PDF “DRF Interview Notes – API to Advanced”** with tables and short examples (best for quick revision)?
+I can generate it for you instantly.

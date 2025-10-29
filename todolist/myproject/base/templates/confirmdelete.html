@@ -1,0 +1,11 @@
+{% extends 'main.html' %}
+ {% block content %}
+ <center>
+ <h1>Are you sure want to delete? </h1>
+<h3>{{data.title}}</h3>
+<a href="{%  url 'home' %}">Cancel</a>
+<a href="{%  url 'deleted_' data.id %}">Delete</a>  
+<!-- we cant give delete bcz the function is there -->
+</center>
+
+    {% endblock content %}

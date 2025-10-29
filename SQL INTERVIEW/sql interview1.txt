@@ -1,0 +1,366 @@
+
+1) What is SQL?
+SQL (Structured Query Language) is a programming language used to manage and manipulate relational databases. 
+ It allows users to create,read,update, and delete data — commonly referred to as CRUD operations
+
+Example:
+sql
+SELECT name FROM students WHERE grade > 90;
+This retrieves names of students whose grade is above 90.
+
+2) How SQL Works
+SQL works by sending queries to a Database Management System (DBMS). The DBMS interprets the query, optimizes it,
+ and executes it to fetch or modify data.
+
+Execution Flow:
+1. Parsing – Checks syntax.
+2. Optimization – Chooses the best way to run the query.
+3. Execution – Retrieves or modifies data.
+4. Return – Sends results back to the user.
+
+3) Why SQL is Important
+- It’s the standard language for relational databases.
+- Used in data analysis, web development,reporting, and business intelligence.
+- Powers backend systems of apps like Instagram, LinkedIn, and banking platforms.
+
+4) Why Should We Use SQL?
+- Universal: Works across many database systems (MySQL, SQL Server, PostgreSQL).
+- Efficient: Handles large datasets quickly.
+- Readable: Easy to learn and write.
+- Secure: Supports permissions and access control.
+
+5) How the Query Runs in Backend
+When you run a query:
+1. SQL Engine receives it.
+2. Parser checks syntax.
+3. Algebrizer validates tables/columns.
+4. Optimizer picks the best execution plan.
+5. Execution Engine runs the plan.
+6. Storage Engine fetches data from disk.
+7. Results are returned to the user.
+
+6) What Work Occurs in Backend While Running SQL Query
+- Syntax check** (Parsing)
+- **Semantic check** (Binding)
+- **Query optimization**
+- **Index lookup**
+- **Disk I/O operations**
+- **Memory allocation**
+- **Concurrency control**
+- **Transaction logging**
+- **Result formatting**
+
+7) What is SQL Server Architecture?
+SQL Server has a **client-server architecture** with three main layers:
+1. **Protocol Layer** – Handles communication.
+2. **Relational Engine** – Parses, compiles, and optimizes queries.
+3. **Storage Engine** – Manages data storage, indexes, and transactions.
+
+End-to-End Workflow
+
+1. *Client sends query* via SSMS or app.
+2. *Protocol Layer* receives and formats it.
+3. *Relational Engine* parses and plans execution.
+4. *Storage Engine* fetches or updates data.
+5. *Results returned* to client.
+
+8) What is MS SQL Server Architecture?
+Same as above but specific to Microsoft SQL Server:
+- **TDS Protocol** – Communicates with clients.
+- **SQL OS (SQLOS)** – Manages threads, memory, and I/O.
+- **Query Processor** – Parses and optimizes queries.
+- **Access Methods** – Interfaces with storage.
+- **Buffer Manager** – Caches data pages.
+- **Transaction Manager** – Ensures ACID compliance.
+
+
+SQLOS (SQL Operating System) is a specialized layer inside Microsoft SQL Server that:
+Manages memory allocation and buffer pools
+Handles thread scheduling and task coordination
+Controls I/O operations like reading/writing data pages
+Provides synchronization primitives (e.g., locks, latches)
+
+
+9) What is Cloud Computing?
+Cloud computing is the delivery of computing services (servers, storage, databases, networking, software) over the internet.
+
+**Types:**
+- **IaaS** – Infrastructure as a Service
+- **PaaS** – Platform as a Service
+- **SaaS** – Software as a Service
+IaaS: You rent the hardware and manage the rest. Great for developers who want full control.
+PaaS: You focus on building apps; the platform handles the rest.
+SaaS: You just use the software—no setup, no maintenance.
+
+Cloud Service Models Comparison
+Model	Full Form	                What You Manage	          What the Provider Manages	           Examples
+IaaS	Infrastructure as a Service	OS, runtime, apps, data	  Virtual machines, storage, networking	   AWS EC2, Microsoft Azure VMs
+PaaS	Platform as a Service	        Apps, data	          OS, runtime, infrastructure	           Google App Engine, Azure App Service
+SaaS	Software as a Service	        Just use the software	  Everything (app, platform, infra)	   Gmail, Salesforce, Microsoft 365
+VM(Virtual Machine)
+Choose your OS (Windows, Linux)
+Customize CPU, memory, disk size
+Integrate with Azure networking, storage, and security
+Scale up/down based on demand
+Pay-as-you-go pricing
+Use case: Perfect for hosting web apps, databases, dev/test environments, or migrating on-prem workloads to the cloud.
+
+
+10) What is Index?
+An **index** is a data structure that improves the speed of data retrieval operations on a database table.
+Indexes are created on columns that are frequently used in WHERE clauses or as part of JOINs.
+
+**Example:**
+```sql
+CREATE INDEX idx_name ON students(name);
+```
+11) How Index Works
+- Indexes store a **sorted reference** to data.
+- When a query runs, the DBMS uses the index to **quickly locate** rows instead of scanning the entire table.
+- Works like a book’s table of contents.
+
+12) Use of Index
+- Faster queries
+- Efficient sorting
+- Improved JOIN performance
+- Reduced CPU and I/O usage
+
+13) Differences Between Cloud Computing and On-Premises
+| Feature              | Cloud Computing         | On-Premises              |
+|----------------------|-------------------------|--------------------------|
+| Deployment           | Internet-based          | Local servers            |
+| Cost                 | Pay-as-you-go           | Upfront hardware cost    |
+| Scalability          | High                    | Limited                  |
+| Maintenance          | Vendor-managed          | User-managed             |
+| Accessibility        | Global                  | Local network only       |
+
+
+14) What is Parse in SQL?
+Parsing is the process of analyzing a SQL query to check its syntax and structure before execution.
+
+15) Work of Parse
+- Tokenization – Breaks query into parts.
+- Syntax Validation – Checks grammar.
+- Tree Generation – Builds parse tree.
+- Error Reporting – Flags mistakes.
+
+16) Importance of Parse
+- Prevents invalid queries from executing.
+- Ensures query is well-formed.
+- First step in query optimization.
+
+17) What is SQL DSA?
+SQL DSA (Data Services Architecture)** refers to the architectural model used in enterprise systems to manage data services —
+ including integration, transformation, and access — often in cloud or hybrid environments.
+
+It’s not a standard SQL feature but a concept used in platforms like SAP or Oracle for **data abstraction and orchestration**.
+
+18)Why Normalize?
+- ✅ Eliminate redundant data (e.g., storing the same customer info in multiple places)
+- ✅ Ensure data dependencies make sense
+- ✅ Improve consistency and reduce anomalies during insert, update, or delete operations
+
+19)Forms of Normalization
+Each "normal form" builds on the previous one. Here are the most common ones:
+
+| Normal Form                     | Description                                           | Key Rule |
+
+| *1NF (First Normal Form)*       | Ensures each column holds atomic (indivisible) values | No repeating groups or arrays |
+| *2NF (Second Normal Form)*      | Builds on 1NF and removes partial dependencies        | Every non-key column must depend on the whole primary key |
+| *3NF (Third Normal Form)*       | Builds on 2NF and removes transitive dependencies     | Non-key columns must depend only on the primary key |
+| *BCNF (Boyce-Codd Normal Form)* | A stricter version of 3NF                             | Every determinant must be a candidate key |
+
+20)Example: From Unnormalized to 3NF
+
+Unnormalized Table
+sql
+-- Student table with repeating subjects
+Student(ID, Name, Subject1, Subject2, Subject3)
+
+1NF
+sql
+-- Break into atomic rows
+Student(ID, Name)
+Enrollment(ID, Subject)
+
+2NF
+sql
+-- Remove partial dependency (if ID is composite)
+-- Assume Enrollment(ID, Subject) is the primary key
+-- Move subject details to a separate table
+Subject(SubjectID, SubjectName)
+Enrollment(StudentID, SubjectID)
+
+3NF
+sql
+-- Remove transitive dependency
+-- If SubjectName depends on SubjectID, and SubjectID is not a key in Enrollment
+-- Keep Subject details separate
+
+21)Groups (Repeating Groups)
+- *Meaning*: When a table has multiple columns for the same type of data.
+- *Example*:
+  sql
+  Student(ID, Name, Subject1, Subject2, Subject3)
+  This is a repeating group of subjects. It violates *1NF* because each subject should be in a separate row, not separate columns.
+
+CustomerId   |Name     |Phone1     |Phone2
+101           Alice     123-4567    987-6543
+
+Create a seprate table for phone numbers:
+CustomerId     |Phone
+101             123-4567
+101             987-6543
+
+22)Arrays
+- *Meaning*: When a column stores multiple values in a single field (like a list or array).
+- *Example*:
+  sql
+  Student(ID, Name, Subjects = ['Math', 'Science', 'English'])
+  
+  This also violates *1NF* because SQL expects atomic (single) values per cell.
+
+23)Redundancy
+- *Meaning*: Storing the same data in multiple places unnecessarily.
+- *Example*:
+  sql
+  Order(ID, CustomerName, CustomerAddress, CustomerPhone)
+ If the same customer places multiple orders, their info is repeated. Better to store customer details in a separate table.
+
+orderid  |  customername    |customeraddress    |product
+1           Alice            NY                  Laptop
+2           Alice            NY                  Mouse
+Here,CustomerName and CustomerAddress repeat for every order.
+
+
+24)Anomalies
+These are problems that occur due to poor database design:
+
+| Type             | Description |
+
+| *Insert Anomaly* | Can't add data because other required data is missing |
+| *Update Anomaly* | Updating one record requires updating many others |
+| *Delete Anomaly* | Deleting one record unintentionally removes valuable data |
+
+*Example*: If you delete the last order of a customer, you might lose their contact info too.
+
+25) Partial Dependency
+- *Meaning*: A non-key column depends only on part of a composite primary key.
+- *Example*:
+  sql
+  Table: Enrollment(StudentID, CourseID, StudentName)
+  
+  Here, StudentName depends only on StudentID, not the full key (StudentID + CourseID). This violates *2NF*.
+
+26)Transitive Dependency
+- *Meaning*: A non-key column depends on another non-key column, which depends on the primary key.
+- *Example*:
+  sql
+  Employee(ID, DeptID, DeptName)
+  
+  DeptName depends on DeptID, which depends on ID. This violates *3NF*.
+
+27)Candidate Key
+- *Meaning*: A column (or set of columns) that can uniquely identify a row.
+- *Example*:
+  In a Student table:
+  - StudentID is a candidate key
+  - If Email is unique, it’s also a candidate key
+  - The *Primary Key* is chosen from the candidate keys
+
+28)Triggers & Views
+- Automate actions with AFTER and INSTEAD OF triggers.
+- Use views to simplify complex joins or enforce security.
+- Learn when triggers are helpful — and when they’re a performance trap.
+A view is a virtual table based on the result-set of an SQL query. It has rows and columns like a real table but doesn’t store the data itself.
+Triggers are special stored procedures that are automatically executed in response to certain events on a table or view, like INSERT, UPDATE or DELETE.
+
+29)Backup & Restore
+- Learn how to protect your data from disasters.
+- Explore full, differential, and transaction log backups.
+- Master restoring databases with precision — even point-in-time recovery.
+
+30)Stored Procedures & Functions
+- Encapsulate logic for reuse and security.
+- Compare scalar vs. table-valued functions.
+- Understand parameter handling and output values.
+
+31)Steps
+Download SQL Server From Microsoft’s official site
+
+ step1:  Run Installer Choose Basic or Custom setup.
+ step2:  Accept License Terms
+ step3:  Select Features Choose components like Database Engine, SSMS, etc.
+ step4:  Configure Instance Name
+ step5:  Set Authentication Mode
+ step6:  Windows Authentication (default)
+ step7:  Mixed Mode (SQL + Windows)
+ step8:  Specify Admin Account
+ step9:  Install SSMS (Optional) For GUI-based management.[Graphical user interface]
+
+
+32)What is a primary key?
+
+Answer: A primary key is a column (or combination of columns) in a table that uniquely identifies each row in that table.
+ No duplicate or NULL values are allowed in that column(s).
+
+-------What is a foreign key?
+
+Answer: A foreign key is a column in a table that references the primary key of another table. It ensures referential integrity.
+
+------What is the difference between WHERE and HAVING?
+
+Answer: WHERE is used to filter records before any grouping is done. HAVING is used to filter groups after GROUP BY.
+
+-----What is the difference between UNION and UNION ALL?
+
+Answer: UNION combines the result-set of two or more SELECT statements and removes duplicates. UNION ALL does the same 
+but doesn’t remove duplicates.
+UNION combines the results of two or more queries and removes duplicate rows,
+while UNION ALL includes all rows, even duplicates. Since UNION performs additional
+sorting and comparison to eliminate duplicates, it can be slower compared to UNION
+ALL. When duplicate rows are not a concern, UNION ALL is preferred for better
+performance.
+
+
+-----What is the difference between DELETE and TRUNCATE?
+
+Answer: DELETE removes rows one by one and logs each deletion so you can roll back if needed. TRUNCATE removes all rows
+from a table quickly and doesn’t log individual row deletions but can’t be rolled back.
+
+-----What is the purpose of GROUP BY clause?
+
+Answer: GROUP BY clause is used to group rows that have the same values in specified columns into summary rows, 
+often used with aggregate functions like COUNT, SUM, AVG etc.
+
+-----How do you backup and recover a database?
+
+Answer: Backup is creating a copy of the database at a point in time. Recovery is restoring the database to the 
+state at the time of the backup. SQL Server supports full, differential and transaction log backups.
+
+-----How do you optimize a slow running query?
+
+Answer: Query optimization can be done by:
+
+Reviewing and refining the query logic
+Adding or modifying indexes
+Avoiding complex joins and subqueries
+Analyze and improve the query execution plan
+Proper normalization and partitioning
+
+----ACID(Atomicity, Consistency, Isolation, Durability) Properties in DBMS
+ACID ensures reliable transactions in relational databases:
+
+Property	Meaning	                                                Example Scenario
+Atomicity	All operations in a transaction succeed or none do	Money transfer: debit & credit must both succeed
+Consistency	Database remains valid before and after a transaction	Balance totals remain unchanged after transfer
+Isolation	Transactions don’t interfere with each other	        Two users updating same record won’t clash
+Durability	Once committed, changes persist even after crashes	Data saved to disk survives power failure
+
+
+
+
+
+
+
+

@@ -1,0 +1,15 @@
+{%  extends 'main.html' %}
+{% block content %}
+<center>
+    <div class="home">
+<form action="" method="POST">
+    {% csrf_token %}
+    <label for="">Title</label>
+    <input type="text" name="title_attr"><br>
+    <label for="">Desc</label>
+    <input type="text" name="desc_attr"><br>
+    <input type="submit">
+</form>
+</div>
+</center>
+     {% endblock content %}

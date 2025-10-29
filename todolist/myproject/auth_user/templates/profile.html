@@ -1,0 +1,14 @@
+{% extends 'main.html'%}
+{% block content %}
+<center>
+    <h2>{{request.user.is_authenticated}}</h2>
+    <h2>Username={{request.user}}</h2>
+    <h2>{{request.user.first_name}}</h2>
+    <h2>{{request.user.last_name}}</h2>
+    <h2>{{request.user.email}}</h2>
+    <a href="{% url 'change_password' %}">Change Password</a>
+    <a href="{% url 'update_user_details' request.user.id %}">Update User Details</a>
+    
+</center>
+
+{% endblock content %}

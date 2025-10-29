@@ -1,0 +1,159 @@
+🧱 Django Models & Admin Panel – Interview Q&A
+
+### 1) What is a model in Django?
+A model is a Python class that defines the structure of a database table. It’s part of Django’s ORM (Object-Relational Mapping) system.
+
+---
+
+### 2) How to create and where to create models?
+- Create models inside the `models.py` file of a Django app.
+- Example:
+  ```python
+  class Book(models.Model):
+      title = models.CharField(max_length=100)
+  ```
+
+---
+
+### 3) How to connect models to the database?
+- Define models in `models.py`
+- Run:
+  ```bash
+  python manage.py makemigrations
+  python manage.py migrate
+  ```
+This creates and applies the database schema.
+
+---
+
+### 4) Which module is used to create models?
+```python
+from django.db import models
+```
+
+---
+
+### 5) What is migrations and migrate?
+- `makemigrations`: Creates migration files based on model changes.
+- `migrate`: Applies those changes to the actual database.
+
+---
+
+### 6) How many ways are there to perform CRUD operations on models?
+- Using Django Admin  
+- Using Django Shell  
+- Using Views and Forms  
+- Using Django REST Framework (DRF)
+
+---
+
+### 7) What is the admin panel?
+A built-in Django interface for managing models and data. Accessible at `/admin/`.
+
+---
+
+### 8) How to create credentials for admin panel?
+Run:
+```bash
+python manage.py createsuperuser
+```
+Enter username, email, and password when prompted.
+
+---
+
+### 9) How to display created model in admin panel?
+In `admin.py` of your app:
+```python
+from .models import Book
+admin.site.register(Book)
+```
+
+---
+
+### 10) In which model are superuser credentials stored?
+In Django’s built-in `User` model located in `django.contrib.auth.models`.
+
+---
+
+### 11) How to perform read operation in admin panel?
+- Log in to `/admin/`  
+- Click on the registered model  
+- View list of entries and click to see details
+
+---
+
+### 12) What is the command to perform CRUD operations in shell?
+```bash
+python manage.py shell
+```
+
+---
+
+### 13) How many ways are there for create operation in shell?
+- Using `Model.objects.create()`  
+- Creating an instance and calling `.save()`
+
+Example:
+```python
+Book.objects.create(title='Django')
+book = Book(title='Django')
+book.save()
+```
+
+---
+
+### 14) What is shell CRUD operation?
+Performing Create, Read, Update, Delete operations using Django’s interactive shell.
+
+---
+
+### 15) Flow of update operation:
+```python
+book = Book.objects.get(id=1)
+book.title = 'New Title'
+book.save()
+```
+
+---
+
+### 16) How to display old data in form value attribute (delete operation)?
+Use Django forms and pass the instance:
+```python
+form = BookForm(instance=book)
+```
+For delete:
+```python
+book.delete()
+```
+
+---
+
+### 17) Flow of history operation:
+Django doesn’t track history by default. Use third-party packages like `django-simple-history` to track changes.
+
+---
+
+### 18) What is redirect function?
+Used to redirect users to another URL:
+```python
+from django.shortcuts import redirect
+return redirect('home')
+```
+
+---
+
+### 19) Difference between get(), all(), filter():
+| Method   | Description                          |
+|----------|--------------------------------------|
+| `get()`  | Returns one object or raises error   |
+| `all()`  | Returns all objects                  |
+| `filter()` | Returns matching queryset         |
+
+---
+
+### 20) Difference between makemigrations and migrate:
+| Command        | Purpose                                      |
+|----------------|----------------------------------------------|
+| `makemigrations` | Prepares migration files from model changes |
+| `migrate`        | Applies those changes to the database       |
+

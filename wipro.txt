@@ -1,0 +1,170 @@
+### **Behavioral / Customer Handling**
+
+**Q: How do you handle stress or difficult customers?**
+➡️ I stay calm, listen patiently, and don’t take it personally. I focus on solving the issue politely.
+
+**Q: If a customer is angry and shouting at you, how will you handle the call?**
+➡️ I will listen without interrupting, apologize for the inconvenience, assure them I’ll help, and resolve or escalate if needed.
+
+**Q: How would you explain a technical issue to a non-technical person?**
+➡️ I use simple, everyday language without jargon and give examples they can relate to.
+
+With Jargon:
+"Your DNS server isn’t resolving domain names. You need to flush your DNS cache or change the DNS server to 8.8.8.8."
+
+Without Jargon (Simple):
+"Your computer is having trouble finding websites. Let’s refresh the settings that connect your computer to websites, and it should work again."
+
+
+**Q: What will you do if you don’t know the answer to a customer’s query?**
+➡️ I’ll politely inform them I’ll check with my senior/team and get back quickly with the correct solution.
+
+**Q: How do you prioritize multiple tickets at the same time?**
+➡️ I follow priority: high-impact and urgent tickets first, then normal ones as per SLA(service level agreement).
+
+---
+
+### **Basic Technical**
+
+**Q: What is an IP address? Difference between IPv4 and IPv6.**
+➡️ IP address is a unique number given to each device on a network. IPv4 is 32-bit (like 192.168.1.1)Can make about 4.3 billion unique addresses.
+
+Still widely used, but running out of addresses., IPv6 is 128-bit and longer Can make trillions of addresses (no shortage).
+
+More secure and faster than IPv4..
+
+**Q: What is DNS and DHCP?**DNS (Domain Name System)DHCP (Dynamic Host Configuration Protocol)
+➡️ DNS converts domain names to IP addresses.
+➡️ DHCP gives IP addresses automatically to devices.
+
+**Q: What is Active Directory?**
+➡️ It’s Microsoft’s service to manage users, computers, and permissions in a network.
+
+**Q: Difference between LAN, WAN, and VPN.**LAN (Local Area Network),WAN (Wide Area Network),VPN (Virtual Private Network)
+➡️ LAN = Local small area (office/home).
+A small network within one location like home, office, or school.
+Example: Computers connected in one office building.
+
+➡️ WAN = Wide area (Internet).
+A network that covers a large area — even worldwide.
+Example: The Internet is the biggest WAN.
+
+➡️ VPN = Secure connection over internet.
+A secure connection over the internet to access a private network safely.
+Example: Work-from-home employees use VPN to connect to company network securely.
+
+**Q: What is ping command used for?**
+➡️ To check if a system/network is reachable.
+
+---
+
+### **Operating System**
+
+**Q: How do you troubleshoot a slow computer?**
+➡️ Check background apps, free disk space, scan for viruses, restart system.
+
+**Q: How do you reset a forgotten Windows password?**
+➡️ Use password reset disk, reset through admin account, or contact IT admin.
+
+**Q: What is the difference between 32-bit and 64-bit OS?**
+➡️ 32-bit handles less memory (up to 4GB). 64-bit supports more memory and is faster.
+
+**Q: How do you boot into safe mode?**
+➡️ Restart and press F8/Shift+F8 or use advanced startup settings.
+
+---
+
+### **Applications / Email**
+
+**Q: How to configure Outlook?**
+➡️ Open Outlook → Add Account → Enter email ID, password, and server details → Finish.
+
+**Q: What is CC and BCC in email?**
+➡️ CC = send copy to others (visible).
+➡️ BCC = send copy hidden from others.
+
+**Q: How do you fix “email not syncing” issue?**
+➡️ Check internet, account settings, restart Outlook, or re-add account.
+
+---
+
+### **Hardware**
+
+**Q: What to do if a system is not turning on?**
+➡️ Check power cable, plug, battery, and try restarting. If still not working, escalate.
+
+**Q: Printer is not working—steps to troubleshoot.**
+➡️ Check power, cables, paper, ink/toner, restart printer, reinstall drivers.
+
+**Q: How to install and uninstall software?**
+➡️ Install: Run setup file or use app store.
+➡️ Uninstall: Control Panel → Programs → Uninstall.
+
+---
+
+### **ITIL Basics**
+
+**Q: What is an incident, problem, and change request?**
+➡️ Incident = User issue (system not working).
+➡️ Problem = Repeated incidents, root cause.
+➡️ Change Request = Request to make a change (like software upgrade).
+
+**Q: What is SLA (Service Level Agreement)?**
+➡️ SLA is the agreed time within which an issue must be resolved.
+
+**Q: Have you used ServiceNow / Remedy / Jira or any ticketing tool?**
+➡️ I have basic knowledge, and I can quickly learn and adapt to whichever tool is used.
+
+---
+
+1. ITIL Framework
+
+What it is: ITIL stands for Information Technology Infrastructure Library.
+
+Purpose: It is a set of best practices to manage IT services in a business.
+
+Goal: To make IT services more efficient, reliable, and cost-effective.
+
+Example: When a company’s email server goes down, ITIL guides the IT team on how to quickly fix the issue (incident management), 
+prevent it from happening again (problem management), and keep users informed.
+
+
+2. Windows
+
+What it is: Windows is an operating system (OS) made by Microsoft.
+
+Purpose: It helps you use your computer – run apps, manage files, browse the internet.
+
+Examples of versions: Windows 10, Windows 11.
+
+Key features: Start Menu, Taskbar, File Explorer, Control Panel.
+
+
+3. macOS
+
+What it is: macOS is an operating system for Apple computers (MacBooks, iMacs).
+
+Purpose: Same as Windows – to help you control the computer.
+
+Examples of versions: macOS Ventura, Sonoma.
+
+Key features: Finder (file manager), Dock (like Windows Taskbar), Spotlight (search).
+
+
+4. Basic Networking Concepts
+
+Here are a few simple terms:
+
+IP Address: Your computer’s "home address" on a network.
+
+DNS: Like a phonebook – converts website names (google.com) into IP addresses.
+
+Router: Connects multiple devices to the internet.
+
+LAN (Local Area Network): Network within a small area (home, office).
+
+WAN (Wide Area Network): Large network connecting multiple LANs (like the internet).
+
+VPN: Creates a private, secure connection over the internet.
+
+

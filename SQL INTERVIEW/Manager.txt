@@ -1,0 +1,179 @@
+1. Tell me about yourself
+
+My name is Pragathi. I have completed my BE in Information Science and Engineering. I am currently learning Python Full Stack and SQL, and 
+I have a strong interest in database management, cloud computing, and Azure. I have done my internship at Samsung, where I worked on data annotation 
+and video annotation. To build my technical skills, I am focusing on Python Full Stack and SQL.
+My strengths are positive attitude,strong interest in team work I am always eager to embrace new 
+technologies and deliver solutions that create real value. My weakness is that I sometimes spend extra time learning a topic in depth, but I am 
+improving at balancing deep learning with efficiency.
+I am eager to start my career at Microsoft, where I can learn, contribute, and grow professionally.
+
+
+2. Why do you want to work at Microsoft?
+
+I'am interested to learn cloud technologies which is my passion and know that microsoft is the leading cloud provider providing various azure services.
+I feel my interest and skills perfectly aligns with the microsoft mision so sum eager to learn more cloud technologies and can create a impact global
+for the customers by providing support so i want to join MS.
+
+
+3. Why should we hire you over other candidates?
+
+"You should hire me because I’m eager to learn, passionate about cloud technologies, and ready to give my best.I bring a fresh perspective with a
+strong foundation in SQL, Python, and problem-solving. I can quickly adapt to new challenges,work hard to deliver quality results, and I’m excited 
+to contribute to Microsoft’s projects and mission."
+
+4. What are your strengths and weaknesses?
+
+My strengths are positive attitude,strong interest in team work I am always eager to embrace new 
+technologies and deliver solutions that create real value. My weakness is that I sometimes spend extra time learning a topic in depth, but I am 
+improving at balancing deep learning with efficiency.
+
+5. How do you approach learning new skills or tools?
+
+“I start by understanding the basics, then practice through real examples or small projects. I also make use of documentation, tutorials, and 
+guidance from teammates. This helps me learn faster and remember better.”
+
+
+6. Tell me about a time you faced a difficult concept — how did you master it?
+
+“When I started learning SQL joins, I initially found them confusing. I broke the topic into smaller parts, practiced with sample data, 
+and visualized the results step-by-step. Within a week, I was confident enough to use them in my projects.”
+
+
+7. How do you handle mistakes?
+
+“If I make a mistake, I take responsibility immediately, identify the cause, and correct it. I then make notes on what went wrong so 
+I can avoid repeating the same error.”
+
+
+8. How do you manage stress or tight deadlines?
+
+“I stay calm, prioritize the most critical tasks, and work in a structured manner. If I face a roadblock, I communicate with my team early 
+so we can resolve it quickly.”
+
+
+9. Have you worked in a team? How did you contribute?
+
+"Yes, I worked in a team during my training project. I handled the database and backend part, shared ideas, helped teammates when needed, 
+and made sure our work fit together so we could finish on time."This experience taught me the importance of communication, teamwork, and supporting 
+each other to achieve a common goal."
+
+
+10. What would you do if a team member was not cooperating?
+
+“I would talk to them privately to understand if there’s any issue causing the behavior. I’d try to resolve it through communication, 
+but if it continues, I’d inform the manager so it can be handled professionally.”
+
+
+
+11. How do you handle feedback or criticism?
+
+“I see feedback as an opportunity to improve. I listen carefully, avoid taking it personally, and apply the suggestions in my next tasks.”
+
+
+
+12. If you and your team have different opinions, how do you handle it?
+
+“I would listen to everyone’s point of view, share my reasoning politely, and be open to compromise if their approach is better.
+The goal is to choose the solution that benefits the project the most.”
+
+
+13. Tell me about a time you took initiative to solve a problem
+"In a project, I saw an error in the database that was slowing us down. I checked it, fixed the issue, and our team could continue without delays."
+
+14. How would you solve a problem if you don’t have complete information?
+
+"If I don’t have complete information, I would first gather as much detail as possible by asking questions or doing research. I would then use the 
+available data to make the best possible decision and update the solution if I get more information."
+
+
+15. What do you understand about this role?
+
+"This role is about helping customers, handling escalation calls, and solving their issues quickly. It also needs knowledge of cloud basics like
+ domain names, IP addresses, and Azure so I can give the right support."
+
+
+16. Are you okay with learning additional tools or working odd hours if needed?
+
+“Yes, I’m open to learning any new tools required for the role, and I’m flexible with work timings when the project demands it.”
+
+
+
+17. Where do you see yourself in 2–3 years?
+
+“I see myself as a skilled database professional who can handle complex queries and work on impactful projects, contributing to Microsoft’s 
+success while continuing to learn and grow.”
+
+
+
+18. What kind of projects excite you the most?
+
+"I’m most excited by projects where I can learn new technologies, especially in cloud and Azure, and solve real problems that make an impact for 
+customers."
+
+
+
+19. How do you ensure quality in your work?
+
+“I double-check my results,I also take feedback from teammates to ensure my work meets 
+expectations.”
+
+
+20. How would you react if your project deadline got preponed suddenly?
+
+"If the deadline was preponed, I would set priorities, focus on important tasks, and work with my team to finish on time."
+
+
+21. If you are stuck, would you ask for help or try to figure it out yourself first?
+
+“I would first try to figure it out myself using available resources. If I’m still stuck after a reasonable time, I would ask for help from teammates
+ or seniors to avoid delaying the project.”
+
+
+
+22. Scenario – You are assigned a task but your senior is busy, and the deadline is near — what will you do?
+
+“I would start working with the information I already have, document any doubts, and if needed, reach out to other available team members for
+ clarification. This way, I keep the work moving.”
+
+
+23. Scenario – Your manager gives you negative feedback — how do you respond?
+
+“I would thank them for the feedback, ask clarifying questions if needed, and immediately work on improving in that area.”
+
+
+24. Scenario – You discover an error in a report just before it’s sent to the client — what do you do?
+
+“I would immediately correct the error if possible, inform my manager about it, and ensure the correct version is sent. Accuracy is always a priority,
+ even if it requires extra effort.”
+
+25)1. Human Resource Management System (HRMS)
+A Human Resource Management System is software used by companies to manage employee-related tasks.
+It can handle things like:
+
+Employee details
+
+Attendance and leave tracking
+
+Payroll and salary calculations
+
+Recruitment and performance management
+
+Example: Instead of manually keeping employee records in files, HRMS stores and manages them in one digital system.
+
+2. E-Commerce Website – “Bookz Maina”
+Bookz Maina is an online bookstore where customers can browse, search, and purchase books through a website.
+Features may include:
+
+Book categories and search filters
+
+Shopping cart and secure payment
+
+User reviews and ratings
+
+Order tracking
+
+Example: Just like Amazon for books, users can buy novels, textbooks, and e-books from anywhere.
+
+
+

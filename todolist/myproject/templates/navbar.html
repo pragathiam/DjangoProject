@@ -1,0 +1,14 @@
+
+<nav>
+{% if user.is_authenticated %}
+    <a href="{% url 'home'%}">Home</a>
+    <a href="{% url 'add' %}">ADD</a>
+    <a href="{% url 'history' %}">History</a>
+    <a href="{% url 'profile' %}">Profile</a>
+    <a href="{% url 'logout_' %}">Logout</a>
+    
+{% else %}
+    <a href="{% url 'register' %}">Register</a>
+    <a href="{% url 'login_' %}">Login</a>
+{% endif %}
+</nav>

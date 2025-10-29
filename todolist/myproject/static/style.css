@@ -1,0 +1,91 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f4f6fa; /* Soft off-white blue-gray */
+}
+
+nav {
+    background-color: #3b5998; /* Deep blue tone */
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav a {
+    color: #ffffff; /* White text */
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.home {
+    background-color: #d9e6f2; /* Light bluish-gray */
+    margin-top: 20px;
+    padding: 30px;
+    width: 1400px;
+    border-radius: 30px;
+}
+
+.home .article {
+    background-color: #fef3c7; /* Soft cream yellow */
+    margin-top: 20px;
+    padding: 30px;
+    width: 1300px;
+    border-radius: 30px;
+}
+
+.home .article h3 {
+    color: #1a4d2e; /* Deep forest green */
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333333;
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #b0bec5; /* Light gray-blue border */
+    border-radius: 6px;
+    background-color: #ffffff;
+}
+
+form input[type="submit"] {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #00796b; /* Teal */
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background: #004d40; /* Darker teal on hover */
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.username {
+    color: #e91e63; /* Rose pink for username */
+    font-weight: bold;
+    font-size: 1.3em;
+}

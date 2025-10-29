@@ -1,0 +1,1307 @@
+
+
+## 🟢 **Basic Python Interview Questions**
+
+### 1. What is Python?
+
+Python is a **high-level, interpreted, object-oriented** programming language known for its **simplicity and readability**. It supports multiple paradigms like procedural, functional, and object-oriented programming.
+
+---
+
+### 2. What are Python’s key features?
+
+* Easy to learn and read
+* Open-source and cross-platform
+* Supports OOP (Object-Oriented Programming)
+* Large standard library
+* Dynamic typing and memory management
+* Huge community support
+
+---
+
+### 3. What is the difference between Python 2 and Python 3?
+
+| Python 2                   | Python 3                     |
+| -------------------------- | ---------------------------- |
+| `print` is a statement     | `print()` is a function      |
+| Unicode not default        | Unicode by default           |
+| Integer division truncates | Integer division gives float |
+| Deprecated                 | Actively supported           |
+
+---
+
+### 4. What are Python data types?
+
+* `int` – integers
+* `float` – decimal numbers
+* `str` – strings
+* `list` – ordered, mutable collection
+* `tuple` – ordered, immutable collection
+* `dict` – key-value pairs
+* `set` – unordered unique elements
+* `bool` – True/False
+
+---
+
+### 5. What is type casting in Python?
+
+Converting one data type to another.
+Example:
+
+```python
+x = 10
+y = float(x)   # 10.0
+```
+
+---
+
+### 6. What is the difference between mutable and immutable data types?
+
+* **Mutable:** Can be changed after creation (`list`, `dict`, `set`)
+* **Immutable:** Cannot be changed (`str`, `tuple`, `int`)
+
+---
+
+### 7. What is the difference between a list and a tuple?
+
+| List      | Tuple     |
+| --------- | --------- |
+| Mutable   | Immutable |
+| Uses `[]` | Uses `()` |
+| Slower    | Faster    |
+
+---
+
+### 8. How is memory managed in Python?
+
+Python uses an **automatic garbage collector** to manage memory — it frees memory when objects are no longer in use.
+
+---
+
+### 9. What are Python keywords?
+
+Reserved words with predefined meanings, e.g., `if`, `else`, `for`, `while`, `class`, `def`, `return`, etc.
+
+---
+
+### 10. What is indentation in Python?
+
+Indentation defines a block of code. It replaces braces `{}` used in other languages.
+
+---
+
+## 🟠 **Intermediate Python Questions**
+
+### 11. What are functions in Python?
+
+A **function** is a block of reusable code defined using the `def` keyword.
+
+```python
+def add(a, b):
+    return a + b
+```
+
+---
+
+### 12. What is the difference between local and global variables?
+
+* **Local:** Declared inside a function; accessible only there.
+* **Global:** Declared outside; accessible throughout the program.
+
+---
+
+### 13. What is recursion?
+
+When a function calls itself.
+
+```python
+def factorial(n):
+    return 1 if n == 0 else n * factorial(n-1)
+```
+
+---
+
+### 14. What are *args and **kwargs?
+
+They allow passing variable numbers of arguments.
+
+```python
+def example(*args, **kwargs):
+    print(args)      # tuple
+    print(kwargs)    # dict
+```
+
+---
+
+### 15. What is a lambda function?
+
+A small anonymous function defined with `lambda`.
+
+```python
+x = lambda a, b: a + b
+print(x(5, 3))
+```
+
+---
+
+### 16. What are modules and packages?
+
+* **Module:** A Python file containing code (functions, classes, etc.)
+* **Package:** A collection of modules in a folder with `__init__.py`
+
+---
+
+### 17. What is the difference between `==` and `is`?
+
+* `==` compares **values**
+* `is` compares **memory addresses**
+
+---
+
+### 18. What is list comprehension?
+
+A compact way to create lists.
+
+```python
+squares = [x*x for x in range(5)]
+```
+
+---
+
+### 19. What are decorators?
+
+Functions that modify the behavior of another function.
+
+```python
+def decorator(func):
+    def wrapper():
+        print("Before function")
+        func()
+        print("After function")
+    return wrapper
+
+@decorator
+def hello():
+    print("Hello!")
+```
+
+---
+
+### 20. What are iterators and generators?
+
+* **Iterator:** Object that can be iterated with `__iter__()` and `__next__()`
+* **Generator:** Function that yields values using `yield` instead of `return`
+
+---
+
+## 🔵 **Advanced Python Concepts**
+
+### 21. What is OOP in Python?
+
+Object-Oriented Programming organizes code into classes and objects.
+
+---
+
+### 22. What are the pillars of OOP?
+
+1. Encapsulation
+2. Abstraction
+3. Inheritance
+4. Polymorphism
+
+---
+
+### 23. Example of class and object:
+
+```python
+class Dog:
+    def __init__(self, name):
+        self.name = name
+    def bark(self):
+        print(f"{self.name} is barking")
+
+d = Dog("Tommy")
+d.bark()
+```
+
+---
+
+### 24. What is inheritance?
+
+A class (child) inherits properties from another class (parent).
+
+```python
+class Parent:
+    def func1(self):
+        print("Parent")
+
+class Child(Parent):
+    def func2(self):
+        print("Child")
+```
+
+---
+
+### 25. What is polymorphism?
+
+Using the same function name with different behavior.
+
+```python
+class Cat:
+    def sound(self): print("Meow")
+class Dog:
+    def sound(self): print("Bark")
+
+for animal in (Cat(), Dog()):
+    animal.sound()
+```
+
+---
+
+### 26. What is exception handling?
+
+Handling runtime errors using `try`, `except`, `finally`.
+
+```python
+try:
+    x = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+finally:
+    print("End")
+```
+
+---
+
+### 27. What are Python file handling modes?
+
+| Mode   | Meaning      |
+| ------ | ------------ |
+| `'r'`  | Read         |
+| `'w'`  | Write        |
+| `'a'`  | Append       |
+| `'r+'` | Read & Write |
+
+---
+
+### 28. What is a virtual environment?
+
+A tool to create isolated Python environments for projects using:
+
+```bash
+python -m venv env
+```
+
+---
+
+### 29. What are Python libraries commonly used?
+
+* **NumPy** – Numerical computing
+* **Pandas** – Data analysis
+* **Matplotlib** – Data visualization
+* **Requests** – HTTP requests
+* **Flask/Django** – Web development
+
+---
+
+### 30. What is the difference between shallow and deep copy?
+
+* **Shallow copy:** Copies only references.
+* **Deep copy:** Copies both object and nested objects.
+
+```python
+import copy
+shallow = copy.copy(obj)
+deep = copy.deepcopy(obj)
+```
+
+---
+
+## ⚪ **SQL + Python Integration (for Full Stack or Data roles)**
+
+* Use `sqlite3` or `pyodbc` for database connection.
+
+```python
+import sqlite3
+con = sqlite3.connect("test.db")
+cur = con.cursor()
+cur.execute("SELECT * FROM students")
+```
+
+---
+
+## 🧠 **Practical Coding Questions**
+
+1. Reverse a string
+
+```python
+s = "hello"
+print(s[::-1])
+```
+
+2. Find factorial of a number
+
+```python
+n = 5
+fact = 1
+for i in range(1, n+1):
+    fact *= i
+```
+
+3. Check palindrome
+
+```python
+s = "madam"
+print("Palindrome" if s == s[::-1] else "Not palindrome")
+```
+
+4. Find largest number in a list
+
+```python
+nums = [3, 5, 2, 9]
+print(max(nums))
+```
+
+5. Count vowels in a string
+
+```python
+s = "python"
+count = sum(1 for ch in s if ch in "aeiou")
+```
+
+Perfect 👍 Let’s go **deeper** — here’s **Part 2: 100+ More Python Interview Questions & Answers**, covering **core, advanced, practical, logical, and scenario-based** topics that interviewers often ask (especially for fresher and full-stack roles).
+
+---
+
+# 🟢 **PYTHON INTERVIEW QUESTIONS — PART 2**
+
+---
+
+## 🧩 **Data Types & Strings**
+
+### 1. How do you find the length of a string?
+
+```python
+s = "Python"
+print(len(s))
+```
+
+---
+
+### 2. How to convert a string to lowercase and uppercase?
+
+```python
+s.lower()
+s.upper()
+```
+
+---
+
+### 3. How do you remove spaces from a string?
+
+```python
+s = "  hello world  "
+print(s.strip())
+```
+
+---
+
+### 4. How do you replace a substring?
+
+```python
+text = "I love Java"
+print(text.replace("Java", "Python"))
+```
+
+---
+
+### 5. How do you split and join strings?
+
+```python
+s = "Hello world"
+words = s.split()        # ['Hello', 'world']
+print('-'.join(words))   # Hello-world
+```
+
+---
+
+## 🧮 **Lists & Tuples**
+
+### 6. How do you append and extend a list?
+
+```python
+lst = [1, 2]
+lst.append(3)
+lst.extend([4, 5])
+```
+
+---
+
+### 7. How do you remove elements from a list?
+
+* `pop()` → removes by index
+* `remove()` → removes by value
+* `del` → delete by slicing or variable
+
+---
+
+### 8. How do you sort a list?
+
+```python
+nums = [3, 1, 5, 2]
+nums.sort()
+```
+
+---
+
+### 9. Difference between `sort()` and `sorted()`?
+
+* `sort()` modifies the list in place
+* `sorted()` returns a new sorted list
+
+---
+
+### 10. How to reverse a list?
+
+```python
+lst.reverse()
+# or
+lst[::-1]
+```
+
+---
+
+## 🧾 **Dictionary & Set**
+
+### 11. How do you create a dictionary?
+
+```python
+d = {'name': 'John', 'age': 25}
+```
+
+---
+
+### 12. How to access dictionary values?
+
+```python
+print(d['name'])
+print(d.get('age'))
+```
+
+---
+
+### 13. How to loop through dictionary keys and values?
+
+```python
+for k, v in d.items():
+    print(k, v)
+```
+
+---
+
+### 14. How do you merge two dictionaries?
+
+```python
+d1 = {'a': 1}
+d2 = {'b': 2}
+d1.update(d2)
+```
+
+---
+
+### 15. What is a set and its use?
+
+A **set** is an unordered collection of unique elements.
+
+```python
+s = {1, 2, 2, 3}
+# {1, 2, 3}
+```
+
+---
+
+## 🧠 **Control Flow**
+
+### 16. Difference between `break`, `continue`, and `pass`?
+
+| Keyword    | Description              |
+| ---------- | ------------------------ |
+| `break`    | Exit the loop            |
+| `continue` | Skip current iteration   |
+| `pass`     | Do nothing (placeholder) |
+
+---
+
+### 17. What are nested loops?
+
+Loop inside another loop.
+
+```python
+for i in range(3):
+    for j in range(2):
+        print(i, j)
+```
+
+---
+
+### 18. What is the use of `enumerate()`?
+
+It adds an index counter in a loop.
+
+```python
+for i, val in enumerate(['a', 'b']):
+    print(i, val)
+```
+
+---
+
+## 🧩 **Functions & Scopes**
+
+### 19. Difference between return and print?
+
+* `print()` displays the output
+* `return` gives value back to caller
+
+---
+
+### 20. What is default argument?
+
+```python
+def greet(name="Guest"):
+    print("Hello", name)
+```
+
+---
+
+### 21. What is keyword-only argument?
+
+```python
+def func(*, x, y):
+    print(x, y)
+```
+
+---
+
+### 22. What is docstring?
+
+It describes the purpose of a function.
+
+```python
+def func():
+    """This function prints hello"""
+```
+
+---
+
+## ⚙️ **Object-Oriented Programming (OOP)**
+
+### 23. What is encapsulation?
+
+Binding data (variables) and functions into a single unit (class).
+
+---
+
+### 24. What is abstraction?
+
+Hiding complex details and showing only necessary parts (using abstract classes or functions).
+
+---
+
+### 25. What are class variables and instance variables?
+
+* **Class variable:** Shared by all instances
+* **Instance variable:** Unique for each object
+
+---
+
+### 26. What is multiple inheritance?
+
+A child class inherits from multiple parent classes.
+
+```python
+class A: pass
+class B: pass
+class C(A, B): pass
+```
+
+---
+
+### 27. What is method overriding?
+
+When a subclass provides a specific implementation of a method in the parent class.
+
+---
+
+### 28. What is `super()`?
+
+Used to call parent class methods inside the child class.
+
+---
+
+## 🧰 **File Handling**
+
+### 29. How to read and write files?
+
+```python
+f = open('data.txt', 'w')
+f.write("Hello")
+f.close()
+```
+
+---
+
+### 30. What does `with` keyword do?
+
+Automatically closes the file.
+
+```python
+with open('data.txt') as f:
+    print(f.read())
+```
+
+---
+
+## 💥 **Exception Handling**
+
+### 31. How to handle multiple exceptions?
+
+```python
+try:
+    x = 1 / 0
+except ZeroDivisionError:
+    print("Division error")
+except Exception:
+    print("Other error")
+```
+
+---
+
+### 32. What is the use of `finally`?
+
+It always executes whether there is an error or not.
+
+---
+
+### 33. How to raise an exception manually?
+
+```python
+raise ValueError("Invalid input")
+```
+
+---
+
+## ⚡ **Modules, Libraries, and Imports**
+
+### 34. How to import a module?
+
+```python
+import math
+print(math.sqrt(9))
+```
+
+---
+
+### 35. Difference between `import` and `from import`?
+
+* `import math` → use `math.sqrt(4)`
+* `from math import sqrt` → use `sqrt(4)`
+
+---
+
+### 36. How to install external packages?
+
+```bash
+pip install package_name
+```
+
+---
+
+## 🧮 **Popular Python Libraries**
+
+| Purpose          | Library                  |
+| ---------------- | ------------------------ |
+| Web Framework    | Django, Flask            |
+| Data Analysis    | Pandas, NumPy            |
+| Machine Learning | Scikit-learn, TensorFlow |
+| Visualization    | Matplotlib, Seaborn      |
+| API Testing      | Requests                 |
+| Automation       | Selenium                 |
+
+---
+
+## 🧩 **Advanced Concepts**
+
+### 37. What is list slicing?
+
+```python
+lst = [1,2,3,4]
+print(lst[1:3])  # [2,3]
+```
+
+---
+
+### 38. What is `__init__()`?
+
+It’s the constructor method in a class — called when an object is created.
+
+---
+
+### 39. What are `__str__()` and `__repr__()` used for?
+
+* `__str__()` → User-readable output
+* `__repr__()` → Developer-readable output
+
+---
+
+### 40. What are Python data structures?
+
+* List
+* Tuple
+* Dictionary
+* Set
+
+---
+
+### 41. What are namespaces in Python?
+
+A container holding variable names and their values.
+
+---
+
+### 42. What are closures in Python?
+
+Functions defined inside another function that remember the outer function’s variables even after the outer function is finished.
+
+---
+
+### 43. What is monkey patching?
+
+Changing class or module behavior at runtime.
+
+---
+
+### 44. What is pickling and unpickling?
+
+* **Pickling:** Convert Python objects into byte streams.
+* **Unpickling:** Revert it back.
+
+---
+
+## 💻 **Coding Practice Questions**
+
+### 45. Find even and odd numbers from list.
+
+```python
+nums = [1,2,3,4,5]
+even = [x for x in nums if x%2==0]
+odd = [x for x in nums if x%2!=0]
+```
+
+---
+
+### 46. Find the sum of digits of a number.
+
+```python
+n = 123
+print(sum(int(i) for i in str(n)))
+```
+
+---
+
+### 47. Check prime number.
+
+```python
+n = 7
+if n>1 and all(n%i!=0 for i in range(2,n)):
+    print("Prime")
+```
+
+---
+
+### 48. Swap two numbers without a third variable.
+
+```python
+a, b = 5, 10
+a, b = b, a
+```
+
+---
+
+### 49. Count occurrences of each character.
+
+```python
+from collections import Counter
+print(Counter("banana"))
+```
+
+---
+
+### 50. Fibonacci series.
+
+```python
+a, b = 0, 1
+for _ in range(5):
+    print(a)
+    a, b = b, a+b
+```
+
+Awesome 👏 — since you’re preparing seriously, let’s go **Part 3: 120+ More Python Interview Questions (Advanced + Practical + Real-World Scenarios)**.
+These are the kinds of questions asked in **MNCs like Microsoft, TCS, Infosys, Wipro, Accenture, and Tech Mahindra** for **Python Developer / Full Stack / Automation / Data roles**.
+
+---
+
+# 🔵 **PYTHON INTERVIEW QUESTIONS — PART 3**
+
+---
+
+## 🧠 **Intermediate–Advanced Concepts**
+
+### 1. What is the difference between deep and shallow copy?
+
+* **Shallow copy:** Copies only the outer object.
+* **Deep copy:** Copies the object and all nested objects.
+
+```python
+import copy
+a = [[1,2],[3,4]]
+b = copy.deepcopy(a)
+```
+
+---
+
+### 2. What are Python’s built-in data structures?
+
+`List`, `Tuple`, `Set`, `Dict`, `String`, and `Range`.
+
+---
+
+### 3. What is the difference between an iterator and iterable?
+
+* **Iterable:** Object that can return an iterator (`list`, `tuple`, `dict`).
+* **Iterator:** Object with `__next__()` and `__iter__()`.
+
+---
+
+### 4. What are generators and why use them?
+
+Generators use `yield` to produce items one at a time → save memory.
+
+---
+
+### 5. What is the difference between `@staticmethod`, `@classmethod`, and instance methods?
+
+| Method Type | Accesses Instance? | Accesses Class? |
+| ----------- | ------------------ | --------------- |
+| Instance    | ✅                  | ✅               |
+| Class       | ❌                  | ✅               |
+| Static      | ❌                  | ❌               |
+
+---
+
+### 6. What is metaclass in Python?
+
+A metaclass defines how classes behave (classes are instances of metaclasses).
+
+---
+
+### 7. What is the difference between `__init__` and `__new__`?
+
+* `__new__()` creates the object.
+* `__init__()` initializes it.
+
+---
+
+### 8. What is duck typing?
+
+Python doesn’t check an object’s type; it only checks if required methods/attributes exist.
+
+---
+
+### 9. What are Python’s memory management techniques?
+
+* Garbage collection
+* Reference counting
+* Dynamic memory allocation
+
+---
+
+### 10. What is the Global Interpreter Lock (GIL)?
+
+A lock that allows only one thread to execute Python bytecode at a time.
+
+---
+
+## 🧩 **Decorators and Generators**
+
+### 11. Write an example of a decorator that measures execution time.
+
+```python
+import time
+def timer(func):
+    def wrapper():
+        start = time.time()
+        func()
+        print("Time:", time.time() - start)
+    return wrapper
+```
+
+---
+
+### 12. Example of generator function.
+
+```python
+def squares(n):
+    for i in range(n):
+        yield i*i
+```
+
+---
+
+### 13. Can you chain decorators?
+
+Yes. Example:
+
+```python
+@decorator1
+@decorator2
+def func():
+    pass
+```
+
+---
+
+## ⚙️ **Multithreading and Multiprocessing**
+
+### 14. What is multithreading in Python?
+
+Running multiple threads (lightweight processes) simultaneously.
+
+---
+
+### 15. What is the limitation of threads in Python?
+
+Due to the **GIL**, true parallel execution is limited in CPU-bound tasks.
+
+---
+
+### 16. Difference between threading and multiprocessing?
+
+| Threading     | Multiprocessing |
+| ------------- | --------------- |
+| Shares memory | Separate memory |
+| Lightweight   | Heavyweight     |
+| GIL bound     | No GIL issue    |
+
+---
+
+### 17. Example of threading in Python:
+
+```python
+import threading
+def print_hello():
+    print("Hello")
+t = threading.Thread(target=print_hello)
+t.start()
+```
+
+---
+
+## 💾 **File, OS, and JSON**
+
+### 18. How do you read and write JSON files?
+
+```python
+import json
+with open("data.json", "w") as f:
+    json.dump({"name":"John"}, f)
+```
+
+---
+
+### 19. How to read environment variables?
+
+```python
+import os
+print(os.getenv("PATH"))
+```
+
+---
+
+### 20. How to list all files in a directory?
+
+```python
+import os
+print(os.listdir("."))
+```
+
+---
+
+## 🧮 **Regular Expressions**
+
+### 21. What are regex used for?
+
+Pattern matching, searching, replacing text.
+
+---
+
+### 22. Example to find all digits in a string.
+
+```python
+import re
+re.findall(r"\d+", "My number is 12345")
+```
+
+---
+
+### 23. What does `re.match` vs `re.search` do?
+
+* `match()` checks only at the start.
+* `search()` checks anywhere in the string.
+
+---
+
+## 🧠 **Python Data Handling**
+
+### 24. How to sort dictionary by value?
+
+```python
+d = {'a':3,'b':1,'c':2}
+print(sorted(d.items(), key=lambda x:x[1]))
+```
+
+---
+
+### 25. How to merge two lists element-wise?
+
+```python
+a = [1,2,3]
+b = [4,5,6]
+list(zip(a,b))
+```
+
+---
+
+### 26. What’s the difference between `is` and `==`?
+
+* `is` → compares identity
+* `==` → compares value
+
+---
+
+### 27. What’s the use of `any()` and `all()`?
+
+```python
+nums = [True, False, True]
+any(nums)   # True
+all(nums)   # False
+```
+
+---
+
+### 28. What are named tuples?
+
+Immutable objects with named fields.
+
+```python
+from collections import namedtuple
+Point = namedtuple('Point', ['x','y'])
+```
+
+---
+
+## 🧩 **Exception Handling Advanced**
+
+### 29. Can we create custom exceptions?
+
+Yes.
+
+```python
+class MyError(Exception):
+    pass
+```
+
+---
+
+### 30. What is `assert` used for?
+
+Used for debugging by testing a condition.
+
+```python
+assert 5 > 2
+```
+
+---
+
+## 🧠 **Django / Flask (Web Framework Basics)**
+
+### 31. What is Django?
+
+Django is a high-level Python framework for building web apps quickly.
+
+---
+
+### 32. What is Flask?
+
+Flask is a lightweight web framework — easy for small projects or APIs.
+
+---
+
+### 33. Difference between Django and Flask?
+
+| Django                  | Flask                  |
+| ----------------------- | ---------------------- |
+| Full-featured           | Lightweight            |
+| Built-in ORM            | No built-in ORM        |
+| Suitable for large apps | Good for microservices |
+
+---
+
+### 34. What is ORM?
+
+**Object Relational Mapping** — helps interact with databases using Python objects instead of SQL queries.
+
+---
+
+### 35. What is a Django model?
+
+A Python class that maps to a database table.
+
+---
+
+### 36. Example Django model:
+
+```python
+class Student(models.Model):
+    name = models.CharField(max_length=100)
+    age = models.IntegerField()
+```
+
+---
+
+### 37. What is the use of `migrations` in Django?
+
+They track and apply database changes automatically.
+
+---
+
+## 🧮 **Database (SQL + Python)**
+
+### 38. How do you connect Python with SQL database?
+
+```python
+import sqlite3
+con = sqlite3.connect("data.db")
+cur = con.cursor()
+cur.execute("SELECT * FROM users")
+```
+
+---
+
+### 39. What is cursor in database?
+
+A cursor is used to execute SQL queries and fetch results.
+
+---
+
+### 40. How to prevent SQL Injection in Python?
+
+Use **parameterized queries**:
+
+```python
+cur.execute("SELECT * FROM users WHERE id=?", (user_id,))
+```
+
+---
+
+## ⚙️ **API and JSON Handling**
+
+### 41. How to make an API request in Python?
+
+```python
+import requests
+r = requests.get("https://api.github.com")
+print(r.json())
+```
+
+---
+
+### 42. How to handle API errors?
+
+Use `try-except` and `r.status_code`.
+
+---
+
+### 43. What is REST API?
+
+REST (Representational State Transfer) uses HTTP methods like GET, POST, PUT, DELETE for data operations.
+
+---
+
+## 🧠 **Cloud & Deployment Related**
+
+### 44. What is the role of Python in Azure Cloud?
+
+Used for:
+
+* Writing automation scripts
+* Azure Functions
+* Data processing
+* Web app backends
+
+---
+
+### 45. What libraries are used for cloud automation?
+
+`boto3` for AWS, `azure` SDK for Azure, `google-cloud` for GCP.
+
+---
+
+## 🧩 **Scenario & Logical Questions**
+
+### 46. Reverse words in a sentence.
+
+```python
+s = "I love Python"
+print(' '.join(s.split()[::-1]))
+```
+
+---
+
+### 47. Remove duplicates from list.
+
+```python
+nums = [1,2,2,3]
+print(list(set(nums)))
+```
+
+---
+
+### 48. Find the second largest number.
+
+```python
+nums = [3,1,4,2]
+print(sorted(nums)[-2])
+```
+
+---
+
+### 49. Flatten a nested list.
+
+```python
+from itertools import chain
+print(list(chain.from_iterable([[1,2],[3,4]])))
+```
+
+---
+
+### 50. Find missing number in sequence.
+
+```python
+nums = [1,2,4,5]
+missing = sum(range(1,6)) - sum(nums)
+```
+
+---
+
+
+

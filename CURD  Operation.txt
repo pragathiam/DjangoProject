@@ -1,0 +1,84 @@
+(myenv) C:\Users\win10\OneDrive\Wordpress\Documents\Desktop\Django1\Newmodel_project\myproject>python manage.py shell    
+7 objects imported automatically (use -v 2 for details).
+
+Ctrl click to launch VS Code Native REPL
+Python 3.13.3 (tags/v3.13.3:6280bb5, Apr  8 2025, 14:47:33) [MSC v.1943 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>>
+>>> from base.models import TaskModel
+>>> 
+>>> # create 
+>>> 
+>>> a=TaskModel(title='python',desc='this is all about python') 
+>>> a.save()
+>>> 
+>>> TaskModel.objects.create(title='django',desc='all about django') 
+<TaskModel: TaskModel object (3)>
+>>>   
+>>> # read
+>>> 
+>>> 
+>>> # get
+>>> 
+>>> a=TaskModel.objects.get(id=3)
+>>> a
+<TaskModel: TaskModel object (3)>
+>>> a.title
+'django'
+>>> a=TaskModel(title='python',desc='this is all about python')
+>>> a.save()
+>>> a=TaskModel.objects.get(id=44) 
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\Users\win10\OneDrive\Wordpress\Documents\Desktop\Django1\Newmodel_project\myenv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\win10\OneDrive\Wordpress\Documents\Desktop\Django1\Newmodel_project\myenv\Lib\site-packages\django\db\models\query.py", line 633, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+base.models.TaskModel.DoesNotExist: TaskModel matching query does not exist.
+>>>
+>>> # all
+>>> a=TaskModel.objects.all
+>>> a=TaskModel.objects.all()
+>>> a
+<QuerySet [<TaskModel: TaskModel object (1)>, <TaskModel: TaskModel object (2)>, <TaskModel: TaskModel object (3)>, <TaskModel: TaskModel object (4)>]>
+>>> for i in a:
+...     print(i)
+... 
+TaskModel object (1)
+TaskModel object (2)
+TaskModel object (3)
+TaskModel object (4)
+>>> for i in a:
+...     print(i.title)
+... 
+water
+python
+django
+python
+>>> # filter 
+>>> 
+>>> a=TaskModel.objects.filter(title='python')
+>>> a
+<QuerySet [<TaskModel: TaskModel object (2)>, <TaskModel: TaskModel object (4)>]>
+>>>
+>>> a=TaskModel.objects.get(id=2)  
+>>>  
+>>> a.title 
+'python'
+>>> a.title='java'
+>>> a.save()
+>>> 
+>>> a=TaskModel.objects.filter(title='python')
+>>> a
+<QuerySet [<TaskModel: TaskModel object (4)>]>
+>>> a.delete()
+(1, {'base.TaskModel': 1})
+>>>
+>>> exit()
+now exiting InteractiveConsole...
+
+(myenv) C:\Users\win10\OneDrive\Wordpress\Documents\Desktop\Django1\Newmodel_project\myproject>
